@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+}
+
+.login__form {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    background-color: lightskyblue;
+}
+
+.form {
+    width: 1000px;
+    height: 750px;
+    margin: 50px auto;
+
+    padding: 45px 50px;
+    background-color: lightskyblu ;
+}
+
+.form__box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    border-radius: 40px;
+
+}
+
+.form__left {
+    width: 50%;
+
+}
+
+.form__padding {
+    width: 210px;
+    height: 210px;
+    background: #f2f2f2;
+    border-radius: 50%;
+    margin: 0 auto;
+    line-height: 210px;
+    position: relative;
+}
+
+.form__image {
+    max-width: 100%;
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.form__right {
+    line-height: 26px;
+    width: 50%;
+    margin-right: 2rem;
+}
+
+.form__padding-right {
+    padding: 0 25px;
+}
+
+.form__title {
+    font-size: 20px;
+    font-weight: bold;
+
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+
+.form__email {
+    position: relative;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background: #f2f2f2;
+    padding: 10px;
+    font-size: 14px;
+    position: relative;
+
+}
+
+
+.form__submit-btn {
+    text-align: center;
+}
+
+.button__login {
+    margin-left: 2rem;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top:1rem
+  }
+  
+  .button__login:hover {background-color: black}
+  
+  .button__login:active {
+    background-color: lightskyblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+
+.container_forgot {
+    justify-content: space-between;
+    font-style: italic;
+}
+
+span {
+    font-style: italic;
+}
+
+a {
+    position: relative;
+    color: lightgreen;
+}

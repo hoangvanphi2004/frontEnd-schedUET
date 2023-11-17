@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../bootstrap/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>User</title>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- header strart -->
+    <header>
+        <a href="#" class="logo"><i class="fas-fa-untensils"><img src="../../bootstrap/assets/imgs/logo.png"
+                    alt="">ScheduleUet</i></a>
+        <nav class="navbar">
+            <a href="#registration">Registration</a>
+            <a href="#study_material">Study material</a>
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-bars" id="menu-bars"></i>
+            <i class="fas fa-search" id="search-icon"></i>
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </header>
+
+    <form action="" id="search-form">
+        <input type="search" placeholder="search here..." name="" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+        <i class="fas fa-times" id="close"></i>
+    </form>
+    <!-- header end!! -->
+
+    <!-- Calendarsection start -->
+
+    <!-- Calendarsection end ! -->
+
+
+    <!-- Registrationsection start -->
+    <!-- Registrationsection start -->
+    <section class="registration" id="registration">
+        <div class="search_registration">
+            <div class="search_registration-selection">
+                <div class="icon_search-selection">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search course....">
+        </div>
+        <div class="registration_table_data">
+            <table id="myTable_data">
+                <thead>
+                    <tr class="header">
+                        <th>CourseId</th>
+                        <th>Course</th>
+                        <th>Credit</th>
+                        <th>Detail</th>
+                        <th>Day</th>
+                        <th>Teacher</th>
+                        <th>Room</th>
+                        <th>Registration</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Co so du lieu</td>
+                        <td>3</td>
+                        <td>1-2</td>
+                        <td>2</td>
+                        <td>Dang hong hai</td>
+                        <td>GD2</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
+                        </td>
+                        <td>
+                            <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Xac suat thong ke</td>
+                        <td>3</td>
+                        <td>3-4</td>
+                        <td>3</td>
+                        <td>Pham cao cuong</td>
+                        <td>GD2</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
+                        </td>
+                        <td>
+                            <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Kien truc may tinh</td>
+                        <td>4</td>
+                        <td>5-6</td>
+                        <td>4</td>
+                        <td>Tran trung hieu</td>
+                        <td>GD2</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <i " id=" icon_add" class="fa-regular fa-pen-to-square"></i>
+                        </td>
+                        <td>
+                            <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>lap trinh huong doi tuong</td>
+                        <td>3</td>
+                        <td>3-4</td>
+                        <td>5</td>
+
+                        <td>nguyen thi thanh nhan</td>
+                        <td>GD2</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <i " id=" icon_add" class="fa-regular fa-pen-to-square"></i>
+                        </td>
+                        <td>
+                            <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Co so du lieu</td>
+                        <td>3</td>
+                        <td>1-2</td>
+                        <td>2</td>
+                        <td>Dang hong hai</td>
+                        <td>GD2</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <i " id=" icon_add" class="fa-regular fa-pen-to-square"></i>
+                        </td>
+                        <td>
+                            <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Co so du lieu</td>
+                        <td>3</td>
+                        <td>1-2</td>
+                        <td>2</td>
+                        <td>Dang hong hai</td>
+                        <td>GD2</td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
+                        </td>
+                        <td>
+                            <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- button save -->
+        <div class="container">
+            <button class="button">Save</button>
+            <button id="addtable_regristration" class="button_add">Add</button>
+        </div>
+        <!-- button save -->
+
+
+
+
+        <!-- danh sach mon da dang ki -->
+        <!-- danh sach mon da dang ki -->
+    </section>
+    <!-- Registrationsection end ! -->
+
+
+
+    <!-- Modal_add_registration Layout start -->
+    <div action="" id="modal" class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <div class="form_add">
+                <div class="form_add__container">
+                    <div class="form_add_header">
+                        <h3 class="form_add_heading">Add regristration</h3>
+                    </div>
+                    <div class="form_add_body">
+                        <div class="form_add_group">
+                            <input type="text" id="CourseIdInput_add" class="form_add_Input"
+                                placeholder="Enter new CourseId">
+                        </div>
+                        <div class="form_add_group">
+                            <input type="text" id="CourseInput_add" class="form_add_Input"
+                                placeholder="Enter new Course">
+                        </div>
+                        <div class="form_add_group">
+                            <input type="text" id="CreditInput_add" class="form_add_Input"
+                                placeholder="Enter new Credit">
+                        </div>
+                        <div class="form_add_group">
+                            <input type="text" id="DetailInput_add" class="form_add_Input"
+                                placeholder="Enter new Detail">
+                        </div>
+                        <div class="form_add_group">
+                            <input type="text" id="DayInput_add" class="form_add_Input" placeholder="Enter new Day">
+                        </div>
+                        <div class="form_add_group">
+                            <input type="text" id="TeacherInput_add" class="form_add_Input"
+                                placeholder="Enter new Teacher">
+                        </div>
+                        <div class="form_add_group">
+                            <input type="text" id="RoomInput_add" class="form_add_Input" placeholder="Enter new Room">
+                        </div>
+                    </div>
+                    <div class="form_add_btn">
+                        <button onclick="addData_regristration()" id="addbutton_regristration"
+                            class="button btn--disable">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <i class="fas fa-times" id="close_add_regristration"></i>
+    </div>
+    <!-- Modal_add_registration Layout End -->
+
+    <!-- Modal_edit_registration Layout start -->
+    <div action="" id="modal_1" class="modal_1 w3-modal-content w3-animate-zoom">
+        <div class="modal_1__overlay"></div>
+        <div class="modal_1__body">
+            <div class="form_add_1">
+                <div class="form_add_1__container">
+                    <div class="form_add_1_header">
+                        <h3 class="form_add_1_heading">Edit regristration</h3>
+                    </div>
+                    <div class="form_add_1_body">
+                        <div class="form_add_1_group">
+                            <input type="text" id="CourseIdInput_add_1" class="form_add_1_Input"
+                                placeholder="Enter new CourseId">
+                        </div>
+                        <div class="form_add_1_group">
+                            <input type="text" id="CourseInput_add_1" class="form_add_1_Input"
+                                placeholder="Enter new Course">
+                        </div>
+                        <div class="form_add_1_group">
+                            <input type="text" id="CreditInput_add_1" class="form_add_1_Input"
+                                placeholder="Enter new Credit">
+                        </div>
+                        <div class="form_add_1_group">
+                            <input type="text" id="DetailInput_add_1" class="form_add_1_Input"
+                                placeholder="Enter new Detail">
+                        </div>
+                        <div class="form_add_1_group">
+                            <input type="text" id="DayInput_add_1" class="form_add_1_Input" placeholder="Enter new Day">
+                        </div>
+                        <div class="form_add_1_group">
+                            <input type="text" id="TeacherInput_add_1" class="form_add_1_Input"
+                                placeholder="Enter new Teacher">
+                        </div>
+                        <div class="form_add_1_group">
+                            <input type="text" id="RoomInput_add_1" class="form_add_1_Input"
+                                placeholder="Enter new Room">
+                        </div>
+                    </div>
+                    <div class="form_add_1_btn">
+                        <button onclick="editData_regristration()" id="editbutton_regristration"
+                            class="button btn--disable">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <i class="fas fa-times" id="close_edit_regristration"></i>
+    </div>
+    <!-- Modal_edit_registration Layout End -->
+    <!-- Registrationsection end ! -->
+
+    <!-- Modal_edit_registration Layout End -->
+
+    <!-- Registrationsection end ! -->
+
+    <!-- study_material strart-->
+
+    <!-- study_material end !-->
+
+    <!-- footer section  start -->
+
+    <!-- footer section end !-->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../../bootstrap/main.js"></script>
+</body>
+
+</html>
