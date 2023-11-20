@@ -12,22 +12,34 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../bootstrap/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>User</title>
+    <title>Material_Admin</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
     <!-- header strart -->
     <header>
-        <a href="#" class="logo"><i class="fas-fa-untensils"><img src="../../bootstrap/assets/imgs/logo.png" alt="">ScheduleUet</i></a>
+        <a href="#" class="logo"><i class="fas-fa-untensils"><img src="../../bootstrap/assets/imgs/logo.png"
+                    alt="">ScheduleUet</i></a>
         <nav class="navbar">
-            <a href="#registration">Registration</a>
+            <a href="#course">Course</a>
+            <a href="#registration">Section</a>
+            <a href="#teacher">Teacher</a>
             <a href="#study_material">Study material</a>
+            <a href="#account">Account</a>  
         </nav>
-    
+
         <div class="icons">
             <i class="fas fa-bars" id="menu-bars"></i>
             <i class="fas fa-search" id="search-icon"></i>
-            <i class="fa-regular fa-user"></i>
+            <div class="dropdown">
+                <i class="fa-regular fa-user" id="user-icon"></i>
+                <div class="dropdown-content">
+                <a href="#">Logout
+                    <i id="log-out_icon"  class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+               
+                </div>
+              </div>
         </div>
     </header>
     
@@ -87,10 +99,10 @@
                         <td>2023</td>
                         <td><a href="https://uet.vnu.edu.vn/en/">Link</a></td>
                         <td>
-                            <i id="icon_add_1" class="fa-regular fa-pen-to-square"></i>
+                            <i id="icon_add_material" class="fa-regular fa-pen-to-square"></i>
                         </td>
                         <td>
-                            <i  id="icon_delete" class="fa-solid fa-trash"></i>
+                            <i onclick="deletetable_material(this)" id="icon_delete_material" class="fa-solid fa-trash"></i>
                         </td>
                     </tr>
 
@@ -98,19 +110,115 @@
             </table>
         </div>
         <div class="container_add_material">
-            <button id="addtable_material" class="button_add_material">Add</button>
+            <button id="addtable_material_admin" class="button_add_material">Add</button>
         </div>
     </section>
-    <!-- study_material end !-->
 
-    <!-- footer section  start -->
-   
-    <!-- footer section end !-->
+    
+    <div action="" id="modal_material" class="modal_material">
+        <div class="modal_material__overlay"></div>
+        <div class="modal_material__body">
+            <div class="form_material_add">
+                <div class="form_material_add__container">
+                    <div class="form_material_add_header">
+                        <h3 class="form_material_add_heading">Add material</h3>
+                    </div>
+                    <div class="form_material_add_body">
+                        <div class="form_material_add_group">
+                            <input type="text" id="id_material_addInput" class="form_material_add_Input"
+                                placeholder="Enter new materialId">
+                        </div>
+                        <div class="form_material_add_group">
+                            <input type="text" id="nameMaterial_material_addInput" class="form_material_add_Input"
+                                placeholder="Enter new Namematerial">
+                        </div>
+                        <div class="form_material_add_group">
+                            <input type="text" id="author_material_addInput" class="form_material_add_Input"
+                                placeholder="Enter new author">
+                        </div>
+                        <div class="form_material_add_group">
+                            <input type="text" id="publiser_material_addInput" class="form_material_add_Input"
+                                placeholder="Enter new publiser">
+                        </div>
+                        <div class="form_material_add_group">
+                            <input type="text" id="title_material_addInput" class="form_material_add_Input"
+                                placeholder="Enter new title">
+                        </div>
+                        <div class="form_material_add_group">
+                            <input type="text" id="year_material_addInput" class="form_material_add_Input"
+                                placeholder="Enter new year">
+                        </div>  
+                        <div class="form_material_add_group">
+                            <input type="text" id="link_material_addInput" class="form_material_add_Input"
+                                placeholder="Enter new link">
+                        </div>                
+                    </div>
+                    <div class="form_material_add_btn">
+                        <button onclick="addData_Material()" id="addbutton_material"
+                            class="button btn--disable">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <i class="fas fa-times" id="close_add_material"></i>
+    </div>
+    <!-- Modal_add_registration Layout End -->
 
+    
+    <!-- Modal_edit_course Layout Start -->
+    <div action="" id="modal_1_material" class="modal_1_material">
+        <div class="modal_1_material__overlay"></div>
+        <div class="modal_1_material__body">
+            <div class="form_material_edit">
+                <div class="form_material_edit__container">
+                    <div class="form_material_edit_header">
+                        <h3 class="form_material_edit_heading">Edit material</h3>
+                    </div>
+                    <div class="form_material_edit_body">
+                        <div class="form_material_edit_group">
+                            <input type="text" id="id_material_editInput" class="form_material_edit_Input"
+                                placeholder="Enter new materialId">
+                        </div>
+                        <div class="form_material_edit_group">
+                            <input type="text" id="nameMaterial_material_editInput" class="form_material_edit_Input"
+                                placeholder="Enter new Namematerial">
+                        </div>
+                        <div class="form_material_edit_group">
+                            <input type="text" id="author_material_editInput" class="form_material_edit_Input"
+                                placeholder="Enter new author">
+                        </div>
+                        <div class="form_material_edit_group">
+                            <input type="text" id="publiser_material_editInput" class="form_material_edit_Input"
+                                placeholder="Enter new publiser">
+                        </div>
+                        <div class="form_material_edit_group">
+                            <input type="text" id="title_material_editInput" class="form_material_edit_Input"
+                                placeholder="Enter new title">
+                        </div>
+                        <div class="form_material_edit_group">
+                            <input type="text" id="year_material_editInput" class="form_material_edit_Input"
+                                placeholder="Enter new year">
+                        </div>  
+                        <div class="form_material_edit_group">
+                            <input type="text" id="link_material_editInput" class="form_material_edit_Input"
+                                placeholder="Enter new link">
+                        </div>                
+                                         
+                    </div>
+                    <div class="form_material_edit_btn">
+                        <button onclick="editData_material()" id="updatebutton_material"
+                            class="button btn--disable">Update </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <i class="fas fa-times" id="close_edit_material"></i>
+    </div>
+     <!-- Modal_edit_course Layout End -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../../bootstrap/main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

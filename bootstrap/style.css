@@ -63,6 +63,10 @@ header .logo i img {
     height: 15%;
 }
 
+header .navbar {
+    margin-left: -20rem;
+}
+
 header .navbar a {
     font-size: 1.7rem;
     padding: 0.5rem 2.5rem;
@@ -163,6 +167,46 @@ header .icons i:hover {
     padding-right: 0rem;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fafafa;
+    margin-left: 10px;
+    padding-top: 5px;
+    min-height: 35px;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 102;
+    border-radius: 0.5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding-top: 2px;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #dbdbdb;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#log-out_icon {
+    font-size: 0.9rem;
+}
+
 .home .wrapper .slide .content {
     flex: 1 1 45rem;
 }
@@ -240,16 +284,16 @@ header .icons i:hover {
 }
 
 .table_result_calendar {
-        margin-top: 2rem;
-        margin-left: 2rem;
-        margin-right: 1rem;
-        display: block;
-        overflow: auto;
-        width: 140%;
-        height: 510px;
-        white-space: nowrap;
-        border: 1px solid black;
-        border-radius: 2px;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    display: block;
+    overflow: auto;
+    width: 140%;
+    height: 510px;
+    white-space: nowrap;
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 #result_course_table {
@@ -455,6 +499,15 @@ header .icons i:hover {
     border: 1px solid black;
 }
 
+.section_table_data {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 650px;
+    white-space: nowrap;
+    border: 1px solid black;
+}
+
 #myTable_data {
     border-collapse: collapse;
     /* Collapse borders */
@@ -467,7 +520,7 @@ header .icons i:hover {
     margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
-   
+
 }
 
 #myTable_data thead {
@@ -509,18 +562,20 @@ header .icons i:hover {
     border-radius: 5px;
     box-shadow: 0 9px #999;
     margin-bottom: 3rem;
-    margin-top:1rem
-  }
-  
-  .button:hover {background-color: black}
-  
-  .button:active {
+    margin-top: 1rem
+}
+
+.button:hover {
+    background-color: black
+}
+
+.button:active {
     background-color: lightskyblue;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
+}
 
-  .button_add {
+.button_add {
     margin-left: 2rem;
     display: inline-block;
     padding: 7px 10px;
@@ -535,16 +590,19 @@ header .icons i:hover {
     border-radius: 5px;
     box-shadow: 0 9px #999;
     margin-bottom: 3rem;
-    margin-top:1rem
-  }
-  
-  .button_add:hover {background-color: black}
-  
-  .button_add:active {
+    margin-top: 1rem
+}
+
+.button_add:hover {
+    background-color: black
+}
+
+.button_add:active {
     background-color: lightskyblue;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
+}
+
 .container,
 .course_list_registration {
     text-align: center;
@@ -559,7 +617,7 @@ header .icons i:hover {
     border: 1px solid black;
 }
 
-.course_list_registration #course_list{
+.course_list_registration #course_list {
     border-collapse: collapse;
     /* Collapse borders */
     width: 100%;
@@ -593,6 +651,8 @@ header .icons i:hover {
     cursor: pointer;
 }
 
+
+/******************Material table ****/
 .study_material {
     position: flex;
     text-align: center;
@@ -646,7 +706,7 @@ header .icons i:hover {
     /* Increase font-size */
     margin-top: 1rem;
     margin-bottom: 1rem;
-   
+
 }
 
 #myTable_data_material thead {
@@ -662,7 +722,7 @@ header .icons i:hover {
     padding: 10px;
     text-align: center;
     width: 300px;
-    
+
 }
 
 
@@ -677,22 +737,427 @@ header .icons i:hover {
     border-radius: 2px;
 }
 
+.button_add_material {
+    margin-left: 2rem;
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
 
-/* Modal*/
+.button_add_material:hover {
+    background-color: black
+}
+
+.button_add_material:active {
+    background-color: lightskyblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+#icon_add_material:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+#icon_delete_material:hover {
+    cursor: pointer;
+}
+
+/* *****************course_ADmin ***************/
+
+.course {
+    position: flex;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.course h1 {
+    margin-top: 4rem;
+}
+
+.search_course {
+    flex: 0.5px;
+    height: 30px;
+    width: 40%;
+    border: 0.1rem solid black;
+    margin-top: 5rem;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.icon_search_course-selection {
+    padding-left: 8px;
+    font-size: 15px;
+    color: black;
+}
+
+.icon_search_course-selection:hover {
+    transform: rotate(360deg);
+    cursor: pointer;
+}
+
+.course_table_data {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 600px;
+    white-space: nowrap;
+    border: 1px solid black;
+    margin-top: 2rem;
+}
+
+#course_table {
+    border-collapse: collapse;
+    /* Collapse borders */
+    width: 100%;
+    /* Full-width */
+    height: 50px;
+    /* Add a grey border */
+    font-size: 18px;
+    /* Increase font-size */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+#course_table thead {
+    color: #192a56;
+    position: sticky;
+    top: 0px;
+    background: rgba(255, 255, 255, 1);
+}
+
+#course_table th,
+#course_table td {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+
+}
+
+
+#myInput_course {
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    color: black;
+    padding: 0 20px;
+    font-style: italic;
+    border-radius: 2px;
+}
+
+.button_add_course_admin {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+.button_add_course_admin:hover {
+    background-color: black
+}
+
+.button_add_course_admin:active {
+    background-color: lightskyblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#icon_add_course:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+#icon_delete_course:hover {
+    cursor: pointer;
+}
+
+/************teacher_ADmin*******************/
+
+.teacher {
+    position: flex;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.teacher h1 {
+    margin-top: 4rem;
+}
+
+.search_teacher {
+    flex: 0.5px;
+    height: 30px;
+    width: 40%;
+    border: 0.1rem solid black;
+    margin-top: 5rem;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.icon_search_teacher-selection {
+    padding-left: 8px;
+    font-size: 15px;
+    color: black;
+}
+
+.icon_search_teacher-selection:hover {
+    transform: rotate(360deg);
+    cursor: pointer;
+}
+
+.teacher_table_data {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 600px;
+    white-space: nowrap;
+    border: 1px solid black;
+    margin-top: 2rem;
+}
+
+#teacher_table {
+    border-collapse: collapse;
+    /* Collapse borders */
+    width: 100%;
+    /* Full-width */
+    height: 50px;
+    /* Add a grey border */
+    font-size: 18px;
+    /* Increase font-size */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+#teacher_table thead {
+    color: #192a56;
+    position: sticky;
+    top: 0px;
+    background: rgba(255, 255, 255, 1);
+}
+
+#teacher_table th,
+#teacher_table td {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+
+}
+
+
+#myInput_teacher {
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    color: black;
+    padding: 0 20px;
+    font-style: italic;
+    border-radius: 2px;
+}
+
+.button_add_teacher_admin {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+.button_add_teacher_admin:hover {
+    background-color: black
+}
+
+.button_add_teacher_admin:active {
+    background-color: lightskyblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#icon_add_teacher:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+#icon_delete_teacher:hover {
+    cursor: pointer;
+}
+
+
+/*****************ACCOUNT_ADMIN***************************/
+
+.account {
+    position: flex;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.account h1 {
+    margin-top: 4rem;
+}
+
+.search_account {
+    flex: 0.5px;
+    height: 30px;
+    width: 40%;
+    border: 0.1rem solid black;
+    margin-top: 5rem;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.icon_search_account-selection {
+    padding-left: 8px;
+    font-size: 15px;
+    color: black;
+}
+
+.icon_search_account-selection:hover {
+    transform: rotate(360deg);
+    cursor: pointer;
+}
+
+.account_table_data {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 600px;
+    white-space: nowrap;
+    border: 1px solid black;
+    margin-top: 2rem;
+}
+
+#account_table {
+    border-collapse: collapse;
+    /* Collapse borders */
+    width: 100%;
+    /* Full-width */
+    height: 50px;
+    /* Add a grey border */
+    font-size: 18px;
+    /* Increase font-size */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+#account_table thead {
+    color: #192a56;
+    position: sticky;
+    top: 0px;
+    background: rgba(255, 255, 255, 1);
+}
+
+#account_table th,
+#account_table td {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+
+}
+
+
+#myInput_account {
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    color: black;
+    padding: 0 20px;
+    font-style: italic;
+    border-radius: 2px;
+}
+
+.button_add_account_admin {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+.button_add_account_admin:hover {
+    background-color: black
+}
+
+.button_add_account_admin:active {
+    background-color: lightskyblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#icon_add_account:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+#icon_delete_account:hover {
+    cursor: pointer;
+}
+
+
+/********************** Modal*/
 .modal {
     position: fixed;
-    right:0;
+    right: 0;
     bottom: 0;
     left: 0;
     display: flex;
 }
 
 #modal {
-    top:-110%;
+    top: -110%;
 }
 
 .form_add {
-     width: 500px;
+    width: 500px;
 }
 
 .modal__overlay {
@@ -704,7 +1169,7 @@ header .icons i:hover {
 }
 
 .modal__body {
-    background-color:white;
+    background-color: white;
     margin: auto;
     position: relative;
     border-radius: 5px;
@@ -714,7 +1179,7 @@ header .icons i:hover {
     padding: 2px 40px;
 }
 
-.form_add_header h3{
+.form_add_header h3 {
     text-align: center;
     font-size: 2.5rem;
     color: #192a56;
@@ -761,12 +1226,12 @@ header .icons i:hover {
     border-radius: 5px;
     box-shadow: 0 9px #999;
     margin-bottom: 3rem;
-    margin-top:1rem
+    margin-top: 1rem
 }
 
 
 #modal.active {
-    top:0;
+    top: 0;
 }
 
 #close_add_regristration {
@@ -778,21 +1243,21 @@ header .icons i:hover {
     font-size: 3rem;
 }
 
- /* Modal1 */
- .modal_1 {
+/* Modal1 */
+.modal_1 {
     position: fixed;
-    right:0;
+    right: 0;
     bottom: 0;
     left: 0;
     display: none;
 }
 
 #modal_1 {
-    top:-110%;
+    top: -110%;
 }
 
 .form_add_1 {
-     width: 500px;
+    width: 500px;
 }
 
 .modal_1__overlay {
@@ -804,7 +1269,7 @@ header .icons i:hover {
 }
 
 .modal_1__body {
-    background-color:white;
+    background-color: white;
     margin: auto;
     position: relative;
     border-radius: 5px;
@@ -814,7 +1279,7 @@ header .icons i:hover {
     padding: 2px 40px;
 }
 
-.form_add_1_header h3{
+.form_add_1_header h3 {
     text-align: center;
     font-size: 2.5rem;
     color: #192a56;
@@ -861,13 +1326,13 @@ header .icons i:hover {
     border-radius: 5px;
     box-shadow: 0 9px #999;
     margin-bottom: 3rem;
-    margin-top:1rem
+    margin-top: 1rem
 }
 
 #modal_1.active {
     display: flex;
     z-index: 101;
-    top:0;
+    top: 0;
 }
 
 #close_edit_regristration {
@@ -879,8 +1344,85 @@ header .icons i:hover {
     font-size: 3rem;
 }
 
-.button_add_material {
-    margin-left: 2rem;
+
+/***************Modal_ACCOUNT************/
+/*************************************/
+.modal_account {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+}
+
+#modal_account {
+    top: -150%;
+}
+
+.form_account_add {
+    width: 500px;
+}
+
+.modal_account__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_account__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_account_add__container {
+    padding: 2px 40px;
+}
+
+.form_account_add_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_account_add_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_account_add_Input:focus {
+    border-color: #888;
+}
+
+.form_account_add_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_account.active {
+    display: flex;
+    top: 0;
+}
+
+#addbutton_account.active {
     display: inline-block;
     padding: 7px 10px;
     font-size: 15px;
@@ -894,23 +1436,759 @@ header .icons i:hover {
     border-radius: 5px;
     box-shadow: 0 9px #999;
     margin-bottom: 3rem;
-    margin-top:1rem
-  }
-  
-  .button_add_material:hover {background-color: black}
-  
-  .button_add_material:active {
+    margin-top: 1rem
+}
+
+#close_add_account {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
+
+
+/***************/
+
+.modal_1_account {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+   
+}
+
+#modal_1_account {
+    top: -150%;
+}
+
+.form_account_edit {
+    width: 500px;
+}
+
+.modal_1_account__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_1_account__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_account_edit__container {
+    padding: 2px 40px;
+}
+
+.form_account_edit_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_account_edit_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_account_edit_Input:focus {
+    border-color: #888;
+}
+
+.form_account_edit_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_1_account.active {
+    display: flex;
+    top: 0;
+}
+
+#updatebutton_account.active {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
     background-color: lightskyblue;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+#close_edit_account {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
+
+/*********************MODAL ACCOUNT END***********/
+/********************************************************/
 
 
+/*********************MODAL COURSE START ************/
+/****************************************************/
+.modal_course {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+}
+
+#modal_course {
+    top: -150%;
+}
+
+.form_course_add {
+    width: 500px;
+}
+
+.modal_course__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_course__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_course_add__container {
+    padding: 2px 40px;
+}
+
+.form_course_add_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_course_add_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_course_add_Input:focus {
+    border-color: #888;
+}
+
+.form_course_add_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_course.active {
+    display: flex;
+    top: 0;
+}
+
+#addbutton_course.active {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+#close_add_course {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
 
 
+/***************/
+
+.modal_1_course {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+   
+}
+
+#modal_1_course {
+    top: -150%;
+}
+
+.form_course_edit {
+    width: 500px;
+}
+
+.modal_1_course__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_1_course__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_course_edit__container {
+    padding: 2px 40px;
+}
+
+.form_course_edit_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_course_edit_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_course_edit_Input:focus {
+    border-color: #888;
+}
+
+.form_course_edit_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_1_course.active {
+    display: flex;
+    top: 0;
+}
+
+#updatebutton_course.active {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+#close_edit_course {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
+/*********************MODAL COURSE END ***********/
+/************************************************/
 
 
+/*********************MODAL MATERIAL START*******/
+/*************************************************/
 
+.modal_material {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+}
+
+#modal_material {
+    top: -110%;
+}
+
+.form_material_add {
+    width: 500px;
+}
+
+.modal_material__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_material__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_material_add__container {
+    padding: 2px 40px;
+}
+
+.form_material_add_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_material_add_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_material_add_Input:focus {
+    border-color: #888;
+}
+
+.form_material_add_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_material.active {    
+    display: flex;
+    top: 0;
+}
+
+#addbutton_material.active {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+#close_add_material {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
+
+
+/***************/
+
+.modal_1_material {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+   
+}
+
+#modal_1_material {
+    top: -150%;
+}
+
+.form_material_edit {
+    width: 500px;
+}
+
+.modal_1_material__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_1_material__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_material_edit__container {
+    padding: 2px 40px;
+}
+
+.form_material_edit_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_material_edit_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_material_edit_Input:focus {
+    border-color: #888;
+}
+
+.form_material_edit_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_1_material.active {
+    display: flex;
+    top: 0;
+}
+
+#updatebutton_material.active {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+#close_edit_material {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
+
+/*********************MODAL MATERIAL END******/
+/*********************************************/
+
+/********************MODAL Teacher Start ******/
+/*********************************************/
+.modal_teacher {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+}
+
+#modal_teacher {
+    top: -110%;
+}
+
+.form_teacher_add {
+    width: 500px;
+}
+
+.modal_teacher__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_teacher__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_teacher_add__container {
+    padding: 2px 40px;
+}
+
+.form_teacher_add_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_teacher_add_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_teacher_add_Input:focus {
+    border-color: #888;
+}
+
+.form_teacher_add_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_teacher.active {    
+    display: flex;
+    top: 0;
+}
+
+#addbutton_teacher.active {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+#close_add_teacher {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
+
+
+/***************/
+
+.modal_1_teacher {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
+   
+}
+
+#modal_1_teacher {
+    top: -150%;
+}
+
+.form_teacher_edit {
+    width: 500px;
+}
+
+.modal_1_teacher__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_1_teacher__body {
+    background-color: white;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.form_teacher_edit__container {
+    padding: 2px 40px;
+}
+
+.form_teacher_edit_header h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #192a56;
+    margin-bottom: 1.5rem;
+}
+
+.form_teacher_edit_Input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    outline: none;
+    font-style: italic;
+}
+
+.form_teacher_edit_Input:focus {
+    border-color: #888;
+}
+
+.form_teacher_edit_btn {
+    text-align: center;
+}
+
+/* #addbutton_regristration {
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+} */
+
+#modal_1_teacher.active {
+    display: flex;
+    top: 0;
+}
+
+#updatebutton_teacher.active {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 3rem;
+    margin-top: 1rem
+}
+
+#close_edit_teacher {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+}
+/*******************MODAL teacher End********/
+/********************************************/
 
 
 

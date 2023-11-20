@@ -62,6 +62,10 @@ function myFunctionMaterial() {
   }
 }
 
+
+/*************section and regristation js start******* */
+/****************************************************** */
+
 function deletetable_registration(i) {
   // Get the parent row of the clicked button 
   let row = i.parentNode.parentNode;
@@ -90,34 +94,6 @@ function edittable_resigstration(button) {
   let TeacherCell = row.cells[5];
   let RoomCell = row.cells[6];
 
-  // Prompt the user to enter updated values 
-  // let CourseIdInput =
-  //   prompt("Enter the updated CourseId:",
-  //     CourseIdCell.innerHTML);
-  // let CourseInput =
-  //   prompt("Enter the updated Course:",
-  //     CourseCell.innerHTML);
-  // let CreditInput =
-  //   prompt("Enter the updated Credit:",
-  //     CreditCell.innerHTML
-  //   );
-  // let DetailInput =
-  //   prompt("Enter the updated Detail:",
-  //     DetailCell.innerHTML
-  //   );
-  // let DayInput =
-  //   prompt("Enter the updated Day:",
-  //     DayCell.innerHTML
-  //   );
-  // let TeacherInput =
-  //   prompt("Enter the updated Teacher:",
-  //     TeacherCell.innerHTML
-  //   );
-  // let RoomInput =
-  //   prompt("Enter the updated Room:",
-  //     RoomCell.innerHTML
-  //   );
-
   // Update the cell contents with the new values 
   CourseIdCell.innerHTML = CourseIdInput;
   CourseCell.innerHTML = CourseInput;
@@ -131,6 +107,8 @@ function edittable_resigstration(button) {
 document.querySelector('#addtable_regristration').onclick = () => {
   document.querySelector('#modal').classList.toggle('active');
 }
+
+
 
 document.querySelector('#close_add_regristration').onclick = () => {
   document.querySelector('#modal').classList.remove('active');
@@ -196,10 +174,9 @@ function addData_regristration() {
   newRow.insertCell(4).innerHTML = Day;
   newRow.insertCell(5).innerHTML = Teacher;
   newRow.insertCell(6).innerHTML = Room;
-  newRow.insertCell(7).innerHTML = '<input type="checkbox">';
-  newRow.insertCell(8).innerHTML =
+  newRow.insertCell(7).innerHTML =
     '<i onclick="edittable_resigstration(this)" id="icon_add" class="fa-regular fa-pen-to-square"></i>';
-  newRow.insertCell(9).innerHTML = ' <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>';
+  newRow.insertCell(8).innerHTML = ' <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>';
 
 
   confirm("Your Data added");
@@ -219,3 +196,11 @@ function clearInputs() {
   document.querySelector('#modal').classList.remove('active');
 }
 
+/*************section and regristation js End******* */
+/*************************************************** */
+
+/***********COurse js start*******/
+/******************************** */
+
+/********************************* */
+/**********COURSE js end!!!!!!!! */

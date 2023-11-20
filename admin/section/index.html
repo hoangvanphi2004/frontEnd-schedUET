@@ -12,7 +12,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../../bootstrap/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>User</title>
+    <title>Section Admin</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
@@ -21,14 +21,25 @@
         <a href="#" class="logo"><i class="fas-fa-untensils"><img src="../../bootstrap/assets/imgs/logo.png"
                     alt="">ScheduleUet</i></a>
         <nav class="navbar">
-            <a href="#registration">Registration</a>
+            <a href="#course">Course</a>
+            <a href="#registration">Section</a>
+            <a href="#teacher">Teacher</a>
             <a href="#study_material">Study material</a>
+            <a href="#account">Account</a>  
         </nav>
 
         <div class="icons">
             <i class="fas fa-bars" id="menu-bars"></i>
             <i class="fas fa-search" id="search-icon"></i>
-            <i class="fa-regular fa-user"></i>
+            <div class="dropdown">
+                <i class="fa-regular fa-user" id="user-icon"></i>
+                <div class="dropdown-content">
+                <a href="#">Logout
+                    <i id="log-out_icon"  class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+               
+                </div>
+              </div>
         </div>
     </header>
 
@@ -55,7 +66,7 @@
             </div>
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search course....">
         </div>
-        <div class="registration_table_data">
+        <div class="section_table_data">
             <table id="myTable_data">
                 <thead>
                     <tr class="header">
@@ -66,7 +77,6 @@
                         <th>Day</th>
                         <th>Teacher</th>
                         <th>Room</th>
-                        <th>Registration</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -80,9 +90,6 @@
                         <td>2</td>
                         <td>Dang hong hai</td>
                         <td>GD2</td>
-                        <td>
-                            <input type="checkbox">
-                        </td>
                         <td>
                             <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
                         </td>
@@ -99,9 +106,6 @@
                         <td>Pham cao cuong</td>
                         <td>GD2</td>
                         <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>
                             <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
                         </td>
                         <td>
@@ -117,10 +121,7 @@
                         <td>Tran trung hieu</td>
                         <td>GD2</td>
                         <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>
-                            <i " id=" icon_add" class="fa-regular fa-pen-to-square"></i>
+                            <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
                         </td>
                         <td>
                             <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
@@ -136,10 +137,7 @@
                         <td>nguyen thi thanh nhan</td>
                         <td>GD2</td>
                         <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>
-                            <i " id=" icon_add" class="fa-regular fa-pen-to-square"></i>
+                            <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
                         </td>
                         <td>
                             <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
@@ -154,10 +152,7 @@
                         <td>Dang hong hai</td>
                         <td>GD2</td>
                         <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>
-                            <i " id=" icon_add" class="fa-regular fa-pen-to-square"></i>
+                            <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
                         </td>
                         <td>
                             <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>
@@ -172,9 +167,6 @@
                         <td>Dang hong hai</td>
                         <td>GD2</td>
                         <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>
                             <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
                         </td>
                         <td>
@@ -186,7 +178,6 @@
         </div>
         <!-- button save -->
         <div class="container">
-            <button class="button">Save</button>
             <button id="addtable_regristration" class="button_add">Add</button>
         </div>
         <!-- button save -->
