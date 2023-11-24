@@ -19,6 +19,7 @@ app.set("view engine", "ejs");
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 //add login route
 app.use("/login", loginRouter);

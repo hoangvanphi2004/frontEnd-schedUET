@@ -1,52 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../bootstrap/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <title>Course Admin</title>
-</head>
+  </head>
 
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
     <!-- header strart -->
     <header>
-        <a href="#" class="logo"><i class="fas-fa-untensils"><img src="../../bootstrap/assets/imgs/logo.png"
-                    alt="">ScheduleUet</i></a>
-        <nav class="navbar">
-            <a href="/admin/courses">Course</a>
-            <a href="/admin/sections">Section</a>
-            <a href="/admin/teachers">Teacher</a>
-            <a href="/admin/materials">Study material</a>
-            <a href="/admin/accounts">Account</a>  
-        </nav>
+      <a href="#" class="logo"
+        ><i class="fas-fa-untensils"
+          ><img src="../../assets/imgs/logo.png" alt="" />ScheduleUet</i
+        ></a
+      >
+      <nav class="navbar">
+        <a href="/admin/courses">Course</a>
+        <a href="/admin/sections">Section</a>
+        <a href="/admin/teachers">Teacher</a>
+        <a href="/admin/materials">Study material</a>
+        <a href="/admin/accounts">Account</a>
+      </nav>
 
-        <div class="icons">
-            <i class="fas fa-bars" id="menu-bars"></i>
-            <i class="fas fa-search" id="search-icon"></i>
-            <div class="dropdown">
-                <i class="fa-regular fa-user" id="user-icon"></i>
-                <div class="dropdown-content">
-                <a href="/logout">Logout
-                    <i id="log-out_icon"  class="fa-solid fa-arrow-right-from-bracket"></i>
-                </a>
-               
-                </div>
-              </div>
+      <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <div class="dropdown">
+          <i class="fa-regular fa-user" id="user-icon"></i>
+          <div class="dropdown-content">
+            <a href="/logout"
+              >Logout
+              <i
+                id="log-out_icon"
+                class="fa-solid fa-arrow-right-from-bracket"
+              ></i>
+            </a>
+          </div>
         </div>
+      </div>
     </header>
 
     <form action="" id="search-form">
-        <input type="search" placeholder="search here..." name="" id="search-box">
-        <label for="search-box" class="fas fa-search"></label>
-        <i class="fas fa-times" id="close"></i>
+      <input
+        type="search"
+        placeholder="search here..."
+        name=""
+        id="search-box"
+      />
+      <label for="search-box" class="fas fa-search"></label>
+      <i class="fas fa-times" id="close"></i>
     </form>
     <!-- header end!! -->
 
@@ -54,159 +77,224 @@
 
     <!-- Calendarsection end ! -->
 
-
     <!-- Registrationsection start -->
     <!-- Registrationsection start -->
     <section class="course" id="course">
-        <div class="admin_course">
-            <h1>Course Admin</h1>
+      <div class="admin_course">
+        <h1>Course Admin</h1>
+      </div>
+      <div class="search_course">
+        <div class="search_course-selection">
+          <div class="icon_search_course-selection">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
         </div>
-        <div class="search_course">
-            <div class="search_course-selection">
-                <div class="icon_search_course-selection">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-            </div>
-            <input type="text" id="myInput_course" onkeyup="myFunctionCourse()" placeholder="Search course....">
-        </div>
-        <div class="course_table_data">
-            <table id="course_table">
-                <thead>
-                    <tr class="header">
-                        <th>CourseId</th>
-                        <th>Course</th>
-                        <th>Credit</th>
-                        <th>Detail</th>
-                        <th>Day</th>
-                        <th>Room</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Co So Du Lieu</td>
-                        <td>4</td>
-                        <td>4-5</td>
-                        <td>3</td>
-                        <td>GD2</td>
-                        <td>
-                            <i id="icon_add_course" class="fa-regular fa-pen-to-square"></i>
-                        </td>
-                        <td>
-                            <i onclick="deletetable_course(this)" id="icon_delete_course" class="fa-solid fa-trash"></i>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- button save -->
-        <div class="container">
-            <button id="addtable_course_admin" class="button_add_course_admin">Add</button>
-        </div>
-        <!-- button save -->
-        <!-- danh sach mon da dang ki -->
-        <!-- danh sach mon da dang ki -->
+        <input
+          type="text"
+          id="myInput_course"
+          onkeyup="myFunctionCourse()"
+          placeholder="Search course...."
+        />
+      </div>
+      <div class="course_table_data">
+        <table id="course_table">
+          <thead>
+            <tr class="header">
+              <th>CourseId</th>
+              <th>Course</th>
+              <th>Credit</th>
+              <th>Detail</th>
+              <th>Day</th>
+              <th>Room</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Co So Du Lieu</td>
+              <td>4</td>
+              <td>4-5</td>
+              <td>3</td>
+              <td>GD2</td>
+              <td>
+                <i id="icon_add_course" class="fa-regular fa-pen-to-square"></i>
+              </td>
+              <td>
+                <i
+                  onclick="deletetable_course(this)"
+                  id="icon_delete_course"
+                  class="fa-solid fa-trash"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- button save -->
+      <div class="container">
+        <button id="addtable_course_admin" class="button_add_course_admin">
+          Add
+        </button>
+      </div>
+      <!-- button save -->
+      <!-- danh sach mon da dang ki -->
+      <!-- danh sach mon da dang ki -->
     </section>
     <!-- Registrationsection end ! -->
 
     <!-- Modal_add_course Layout start -->
     <div action="" id="modal_course" class="modal_course">
-        <div class="modal_course__overlay"></div>
-        <div class="modal_course__body">
-            <div class="form_course_add">
-                <div class="form_course_add__container">
-                    <div class="form_course_add_header">
-                        <h3 class="form_course_add_heading">Add course</h3>
-                    </div>
-                    <div class="form_course_add_body">
-                        <div class="form_course_add_group">
-                            <input type="text" id="id_course_addInput" class="form_course_add_Input"
-                                placeholder="Enter new courseId">
-                        </div>
-                        <div class="form_course_add_group">
-                            <input type="text" id="course_course_addInput" class="form_course_add_Input"
-                                placeholder="Enter new course">
-                        </div>
-                        <div class="form_course_add_group">
-                            <input type="text" id="cradd_course_addInput" class="form_course_add_Input"
-                                placeholder="Enter new credit">
-                        </div>
-                        <div class="form_course_add_group">
-                            <input type="text" id="detail_course_addInput" class="form_course_add_Input"
-                                placeholder="Enter new detail">
-                        </div>
-                        <div class="form_course_add_group">
-                            <input type="text" id="day_course_addInput" class="form_course_add_Input"
-                                placeholder="Enter new day">
-                        </div>
-                        <div class="form_course_add_group">
-                            <input type="text" id="room_course_addInput" class="form_course_add_Input"
-                                placeholder="Enter new room">
-                        </div>                
-                    </div>
-                    <div class="form_course_add_btn">
-                        <button onclick="addData_Course()" id="addbutton_course"
-                            class="button btn--disable">Add</button>
-                    </div>
-                </div>
+      <div class="modal_course__overlay"></div>
+      <div class="modal_course__body">
+        <div class="form_course_add">
+          <div class="form_course_add__container">
+            <div class="form_course_add_header">
+              <h3 class="form_course_add_heading">Add course</h3>
             </div>
+            <div class="form_course_add_body">
+              <div class="form_course_add_group">
+                <input
+                  type="text"
+                  id="id_course_addInput"
+                  class="form_course_add_Input"
+                  placeholder="Enter new courseId"
+                />
+              </div>
+              <div class="form_course_add_group">
+                <input
+                  type="text"
+                  id="course_course_addInput"
+                  class="form_course_add_Input"
+                  placeholder="Enter new course"
+                />
+              </div>
+              <div class="form_course_add_group">
+                <input
+                  type="text"
+                  id="cradd_course_addInput"
+                  class="form_course_add_Input"
+                  placeholder="Enter new credit"
+                />
+              </div>
+              <div class="form_course_add_group">
+                <input
+                  type="text"
+                  id="detail_course_addInput"
+                  class="form_course_add_Input"
+                  placeholder="Enter new detail"
+                />
+              </div>
+              <div class="form_course_add_group">
+                <input
+                  type="text"
+                  id="day_course_addInput"
+                  class="form_course_add_Input"
+                  placeholder="Enter new day"
+                />
+              </div>
+              <div class="form_course_add_group">
+                <input
+                  type="text"
+                  id="room_course_addInput"
+                  class="form_course_add_Input"
+                  placeholder="Enter new room"
+                />
+              </div>
+            </div>
+            <div class="form_course_add_btn">
+              <button
+                onclick="addData_Course()"
+                id="addbutton_course"
+                class="button btn--disable"
+              >
+                Add
+              </button>
+            </div>
+          </div>
         </div>
-        <i class="fas fa-times" id="close_add_course"></i>
+      </div>
+      <i class="fas fa-times" id="close_add_course"></i>
     </div>
     <!-- Modal_add_registration Layout End -->
 
-    
     <!-- Modal_edit_course Layout Start -->
     <div action="" id="modal_1_course" class="modal_1_course">
-        <div class="modal_1_course__overlay"></div>
-        <div class="modal_1_course__body">
-            <div class="form_course_edit">
-                <div class="form_course_edit__container">
-                    <div class="form_course_edit_header">
-                        <h3 class="form_course_edit_heading">Edit course</h3>
-                    </div>
-                    <div class="form_course_edit_body">
-                        <div class="form_course_edit_group">
-                            <input type="text" id="id_course_editInput" class="form_course_edit_Input"
-                                placeholder="Enter new courseId">
-                        </div>
-                        <div class="form_course_edit_group">
-                            <input type="text" id="course_course_editInput" class="form_course_edit_Input"
-                                placeholder="Enter new course">
-                        </div>
-                        <div class="form_course_edit_group">
-                            <input type="text" id="credit_course_editInput" class="form_course_edit_Input"
-                                placeholder="Enter new credit">
-                        </div>
-                        <div class="form_course_edit_group">
-                            <input type="text" id="detail_course_editInput" class="form_course_edit_Input"
-                                placeholder="Enter new detail">
-                        </div>
-                        <div class="form_course_edit_group">
-                            <input type="text" id="day_course_editInput" class="form_course_edit_Input"
-                                placeholder="Enter new day">
-                        </div>
-                        <div class="form_course_edit_group">
-                            <input type="text" id="room_course_editInput" class="form_course_edit_Input"
-                                placeholder="Enter new room">
-                        </div>
-                                         
-                    </div>
-                    <div class="form_course_edit_btn">
-                        <button onclick="editData_Course()" id="updatebutton_course"
-                            class="button btn--disable">Update </button>
-                    </div>
-                </div>
+      <div class="modal_1_course__overlay"></div>
+      <div class="modal_1_course__body">
+        <div class="form_course_edit">
+          <div class="form_course_edit__container">
+            <div class="form_course_edit_header">
+              <h3 class="form_course_edit_heading">Edit course</h3>
             </div>
+            <div class="form_course_edit_body">
+              <div class="form_course_edit_group">
+                <input
+                  type="text"
+                  id="id_course_editInput"
+                  class="form_course_edit_Input"
+                  placeholder="Enter new courseId"
+                />
+              </div>
+              <div class="form_course_edit_group">
+                <input
+                  type="text"
+                  id="course_course_editInput"
+                  class="form_course_edit_Input"
+                  placeholder="Enter new course"
+                />
+              </div>
+              <div class="form_course_edit_group">
+                <input
+                  type="text"
+                  id="credit_course_editInput"
+                  class="form_course_edit_Input"
+                  placeholder="Enter new credit"
+                />
+              </div>
+              <div class="form_course_edit_group">
+                <input
+                  type="text"
+                  id="detail_course_editInput"
+                  class="form_course_edit_Input"
+                  placeholder="Enter new detail"
+                />
+              </div>
+              <div class="form_course_edit_group">
+                <input
+                  type="text"
+                  id="day_course_editInput"
+                  class="form_course_edit_Input"
+                  placeholder="Enter new day"
+                />
+              </div>
+              <div class="form_course_edit_group">
+                <input
+                  type="text"
+                  id="room_course_editInput"
+                  class="form_course_edit_Input"
+                  placeholder="Enter new room"
+                />
+              </div>
+            </div>
+            <div class="form_course_edit_btn">
+              <button
+                onclick="editData_Course()"
+                id="updatebutton_course"
+                class="button btn--disable"
+              >
+                Update
+              </button>
+            </div>
+          </div>
         </div>
-        <i class="fas fa-times" id="close_edit_course"></i>
+      </div>
+      <i class="fas fa-times" id="close_edit_course"></i>
     </div>
-     <!-- Modal_edit_course Layout End -->
+    <!-- Modal_edit_course Layout End -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="main.js"></script>
-</body>
-
+    <script src="/script/adminPages/course.js"></script>
+  </body>
 </html>

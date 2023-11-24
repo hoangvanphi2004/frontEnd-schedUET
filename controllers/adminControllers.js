@@ -3,7 +3,7 @@ import axios from "axios";
 
 const getAccounts = wrapper(async (req, res, next) => {
   res.render("admin/account");
-});
+}); 
 
 const getCourses = wrapper(async (req, res, next) => {
   res.render("admin/course");
