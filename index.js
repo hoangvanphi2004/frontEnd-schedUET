@@ -12,6 +12,7 @@ import homeRouter from "./routes/homeRoute.js";
 //import middleware
 import { authenticateMiddleware } from "./middleware/authenticateMiddleware.js";
 import * as checkRolesMiddleware from "./middleware/checkRoles.js";
+import notFoundMiddleware from "./middleware/notfound.js";
 
 //set view engine
 app.set("view engine", "ejs");
@@ -32,6 +33,9 @@ app.use("/", homeRouter);
 app.use("/admin", checkRolesMiddleware.isAdmin, adminRouter);
 app.use("/user", checkRolesMiddleware.isUser, userRouter);
 app.use("/logout", logoutRouter);
+
+//add notFound middleware
+app.use(notFoundMiddleware);
 
 app.listen(8001, () => {
   console.log("listening on port 8001");

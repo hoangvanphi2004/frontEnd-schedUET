@@ -5,7 +5,6 @@ const authenticateMiddleware = wrapper(async (req, res, next) => {
   await axios
     .get("http://localhost:8000/checkAuth")
     .then((result) => {
-      // console.log(result.data);
       global.account = result.data;
     })
     .catch((err) => {

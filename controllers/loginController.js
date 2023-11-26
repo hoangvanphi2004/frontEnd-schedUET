@@ -14,17 +14,12 @@ const logInBE = wrapper(async (req, res, next) => {
       password: password,
     })
     .then((result) => {
-      console.log("response from be after log in");
-      console.log(result.data);
       if (result.data.loggedIn == 0) return res.redirect("/login");
-      console.log("Logged in");
       return res.redirect("/");
     })
     .catch((err) => {
       return res.redirect("/login");
     });
-
-  res.send("haha");
 });
 
 export { logInFE, logInBE };
