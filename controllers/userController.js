@@ -1,6 +1,7 @@
 import { wrapper } from "../middleware/wrapper.js";
 
 const getSchedules = wrapper(async (req, res, next) => {
+  //const userSchedule = fetch()
   res.render("user/schedule");
 });
 
