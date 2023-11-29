@@ -125,13 +125,17 @@
                 <td id="teacherID-<%= i %>"><%= data[i].teacherID %></td>
                 <td id="capacity-<%= i %>"><%= data[i].capacity %></td>
                 <td>
-                  <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
+                  <i 
+                    onclick="openEditTab(this)"
+                    id="icon_add_section_<%= i %>" 
+                    class="icon_add_section fa-regular fa-pen-to-square">
+                  </i>
                 </td>
                 <td>
                   <i
-                    onclick="deletetable_registration(this)"
-                    id="icon_delete"
-                    class="fa-solid fa-trash"
+                    onclick="delete_section(this)"
+                    id="icon_delete_section_<%= i %>"
+                    class="icon_delete_section fa-solid fa-trash"
                   ></i>
                 </td>
               </tr>
@@ -141,7 +145,7 @@
       </div>
       <!-- button save -->
       <div class="container">
-        <button id="addtable_regristration" class="button_add">Add</button>
+        <button id="addtable_section_admin" class="button_add">Add</button>
       </div>
       <!-- button save -->
 
@@ -151,75 +155,83 @@
     <!-- Registrationsection end ! -->
 
     <!-- Modal_add_registration Layout start -->
-    <div action="" id="modal" class="modal">
+    <div action="" id="modal_section" class="modal_section">
       <div class="modal__overlay"></div>
       <div class="modal__body">
         <div class="form_add">
           <div class="form_add__container">
             <div class="form_add_header">
-              <h3 class="form_add_heading">Add regristration</h3>
+              <h3 class="form_add_heading">Add Sections</h3>
             </div>
             <div class="form_add_body">
               <div class="form_add_group">
                 <input
                   type="text"
-                  id="CourseIdInput_add"
+                  id="courseID_addInput"
                   class="form_add_Input"
-                  placeholder="Enter new CourseId"
+                  placeholder="Enter new courseId"
                 />
               </div>
               <div class="form_add_group">
                 <input
                   type="text"
-                  id="CourseInput_add"
+                  id="sectionID_addInput"
                   class="form_add_Input"
-                  placeholder="Enter new Course"
+                  placeholder="Enter new sectionID"
                 />
               </div>
               <div class="form_add_group">
                 <input
                   type="text"
-                  id="CreditInput_add"
+                  id="location_addInput"
                   class="form_add_Input"
-                  placeholder="Enter new Credit"
+                  placeholder="Enter new location"
                 />
               </div>
               <div class="form_add_group">
                 <input
                   type="text"
-                  id="DetailInput_add"
+                  id="day_addInput"
                   class="form_add_Input"
-                  placeholder="Enter new Detail"
+                  placeholder="Enter new weekday"
                 />
               </div>
               <div class="form_add_group">
                 <input
                   type="text"
-                  id="DayInput_add"
+                  id="start_addInput"
                   class="form_add_Input"
-                  placeholder="Enter new Day"
+                  placeholder="Enter new start period"
                 />
               </div>
               <div class="form_add_group">
                 <input
                   type="text"
-                  id="TeacherInput_add"
+                  id="end_addInput"
                   class="form_add_Input"
-                  placeholder="Enter new Teacher"
+                  placeholder="Enter new end period"
                 />
               </div>
               <div class="form_add_group">
                 <input
                   type="text"
-                  id="RoomInput_add"
+                  id="teacherID_addInput"
                   class="form_add_Input"
-                  placeholder="Enter new Room"
+                  placeholder="Enter new teacherID"
+                />
+              </div>
+              <div class="form_add_group">
+                <input
+                  type="text"
+                  id="capacity_addInput"
+                  class="form_add_Input"
+                  placeholder="Enter new capacity"
                 />
               </div>
             </div>
             <div class="form_add_btn">
               <button
-                onclick="addData_regristration()"
+                onclick="addData_Section()"
                 id="addbutton_regristration"
                 class="button btn--disable"
               >
@@ -229,28 +241,28 @@
           </div>
         </div>
       </div>
-      <i class="fas fa-times" id="close_add_regristration"></i>
+      <i class="fas fa-times" id="close_add_section"></i>
     </div>
     <!-- Modal_add_registration Layout End -->
 
     <!-- Modal_edit_registration Layout start -->
     <div
       action=""
-      id="modal_1"
-      class="modal_1 w3-modal-content w3-animate-zoom"
+      id="modal_1_section"
+      class="modal_1_section w3-modal-content w3-animate-zoom"
     >
       <div class="modal_1__overlay"></div>
       <div class="modal_1__body">
         <div class="form_add_1">
           <div class="form_add_1__container">
             <div class="form_add_1_header">
-              <h3 class="form_add_1_heading">Edit regristration</h3>
+              <h3 class="form_add_1_heading">Edit sections</h3>
             </div>
             <div class="form_add_1_body">
               <div class="form_add_1_group">
                 <input
                   type="text"
-                  id="CourseIdInput_add_1"
+                  id="courseID_editInput"
                   class="form_add_1_Input"
                   placeholder="Enter new CourseId"
                 />
@@ -258,7 +270,7 @@
               <div class="form_add_1_group">
                 <input
                   type="text"
-                  id="CourseInput_add_1"
+                  id="sectionID_editInput"
                   class="form_add_1_Input"
                   placeholder="Enter new Course"
                 />
@@ -266,7 +278,7 @@
               <div class="form_add_1_group">
                 <input
                   type="text"
-                  id="CreditInput_add_1"
+                  id="location_editInput"
                   class="form_add_1_Input"
                   placeholder="Enter new Credit"
                 />
@@ -274,7 +286,7 @@
               <div class="form_add_1_group">
                 <input
                   type="text"
-                  id="DetailInput_add_1"
+                  id="day_editInput"
                   class="form_add_1_Input"
                   placeholder="Enter new Detail"
                 />
@@ -282,7 +294,7 @@
               <div class="form_add_1_group">
                 <input
                   type="text"
-                  id="DayInput_add_1"
+                  id="start_editInput"
                   class="form_add_1_Input"
                   placeholder="Enter new Day"
                 />
@@ -290,7 +302,7 @@
               <div class="form_add_1_group">
                 <input
                   type="text"
-                  id="TeacherInput_add_1"
+                  id="end_editInput"
                   class="form_add_1_Input"
                   placeholder="Enter new Teacher"
                 />
@@ -298,7 +310,15 @@
               <div class="form_add_1_group">
                 <input
                   type="text"
-                  id="RoomInput_add_1"
+                  id="teacherID_editInput"
+                  class="form_add_1_Input"
+                  placeholder="Enter new Room"
+                />
+              </div>
+              <div class="form_add_1_group">
+                <input
+                  type="text"
+                  id="capacity_editInput"
                   class="form_add_1_Input"
                   placeholder="Enter new Room"
                 />
@@ -306,7 +326,7 @@
             </div>
             <div class="form_add_1_btn">
               <button
-                onclick="editData_regristration()"
+                onclick="editData_Section()"
                 id="editbutton_regristration"
                 class="button btn--disable"
               >
@@ -316,7 +336,7 @@
           </div>
         </div>
       </div>
-      <i class="fas fa-times" id="close_edit_regristration"></i>
+      <i class="fas fa-times" id="close_edit_section"></i>
     </div>
     <!-- Modal_edit_registration Layout End -->
     <!-- Registrationsection end ! -->

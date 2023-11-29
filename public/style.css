@@ -545,7 +545,12 @@ header .icons i:hover {
     border: 1px solid black;
 } */
 
-#icon_add:hover {
+#icon_add_section:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.icon_add_section:hover {
     background-color: #ddd;
     cursor: pointer;
 }
@@ -649,7 +654,13 @@ header .icons i:hover {
     width: 300px;
 }
 
-#icon_delete:hover {
+#icon_delete_section:hover {
+    cursor: pointer;
+}
+
+
+.icon_delete_section:hover {
+    background-color: #ddd;
     cursor: pointer;
 }
 
@@ -1174,16 +1185,18 @@ header .icons i:hover {
 
 
 /********************** Modal*/
-.modal {
+.modal_section {
     position: fixed;
     right: 0;
     bottom: 0;
-    left: 0;
-    display: flex;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
 }
 
-#modal {
-    top: -110%;
+#modal_section {
+    top: 0%;
 }
 
 .form_add {
@@ -1260,11 +1273,12 @@ header .icons i:hover {
 }
 
 
-#modal.active {
+#modal_section.active {
+    display: flex;
     top: 0;
 }
 
-#close_add_regristration {
+#close_add_section {
     position: absolute;
     color: #fff;
     cursor: pointer;
@@ -1274,15 +1288,17 @@ header .icons i:hover {
 }
 
 /* Modal1 */
-.modal_1 {
+.modal_1_section {
     position: fixed;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 0;    
+    top:0;
     display: none;
+    z-index: 101;
 }
 
-#modal_1 {
+#modal_1_section {
     top: -110%;
 }
 
@@ -1359,13 +1375,13 @@ header .icons i:hover {
     margin-top: 1rem
 }
 
-#modal_1.active {
+#modal_1_section.active {
     display: flex;
     z-index: 101;
     top: 0;
 }
 
-#close_edit_regristration {
+#close_edit_section {
     position: absolute;
     color: #fff;
     cursor: pointer;
