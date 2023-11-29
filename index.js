@@ -1,4 +1,5 @@
 import express from "express";
+import dotenv from "dotenv";
 
 const app = express();
 
@@ -13,6 +14,8 @@ import homeRouter from "./routes/homeRoute.js";
 import { authenticateMiddleware } from "./middleware/authenticateMiddleware.js";
 import * as checkRolesMiddleware from "./middleware/checkRoles.js";
 import notFoundMiddleware from "./middleware/notfound.js";
+
+dotenv.config();
 
 //set view engine
 app.set("view engine", "ejs");

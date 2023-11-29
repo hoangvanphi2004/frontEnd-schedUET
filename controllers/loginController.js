@@ -1,5 +1,7 @@
 import { wrapper } from "../middleware/wrapper.js";
+import dotenv from "dotenv";
 import axios from "axios";
+dotenv.config();
 
 const logInFE = wrapper(async (req, res, next) => {
   res.render("login");
@@ -9,7 +11,7 @@ const logInBE = wrapper(async (req, res, next) => {
   const username = req.body.userID;
   const password = req.body.password;
   await axios
-    .post(`http://localhost:8000/login`, {
+    .post(`${process.env.BASE_URL}/login`, {
       userID: username,
       password: password,
     })

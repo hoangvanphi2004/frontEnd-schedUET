@@ -1,7 +1,7 @@
 <%- include('../general/headerUser') %>;
     <!-- Calendarsection start -->
     <section class="Calendar_section" id="Calendar_section">
-      <div class="home">
+      <div class="home" >
         <div class="wrapper">
           <div class="slide">
             <div class="content">
@@ -14,7 +14,7 @@
       </div>
 
       <div class="main_table">
-        <table>
+        <table class="schedule">
           <tr>
             <th></th>
             <th id="monday">Monday</th>
@@ -23,68 +23,141 @@
             <th id="thurday">Thurday</th>
             <th id="friday">Friday</th>
             <th id="saturday">Saturday</th>
+            <th id="sunday">Sunday</th>
           </tr>
           <tr>
             <td>Period 1</td>
-            <td
-              rowspan="3"
-              style="background-color: red; border-radius: 0.5rem; width: 100px"
-            ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 4</td>
-            <td rowspan="2" style="background-color: aqua">hahahah</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 9</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td>Period 11</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
         </table>
 
         <div class="main_search_and_result_table">
           <div class="main_search">
-            <div class="main_search-input-wrap">
+            <div class="main_search-input-wrap" onmouseenter="enterInputField()" onmouseleave="leaveInputField()">
               <input
                 type="text"
                 class="main_search-input"
                 placeholder="Find..."
+                onkeyup="sectionSearch()"
               />
-
+              
               <!-- Seach--history -->
               <div class="main_search-history">
-                <h3 class="main_search-history-heading">Lịch sử Tìm kiếm</h3>
                 <ul class="main_search-history-list">
                   <li class="main_search-history-item">
-                    <a href="">Đại số tuyến tính</a>
+                    <a href="#">Đại số tuyến tính</a>
                   </li>
                   <li class="main_search-history-item">
-                    <a href="">Giải tích</a>
+                    <a href="#">Giải tích</a>
                   </li>
                   <li class="main_search-history-item">
-                    <a href="">Toán rời rạc</a>
+                    <a href="#">Toán rời rạc</a>
                   </li>
                 </ul>
               </div>
@@ -107,133 +180,38 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>co so du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Co So du lieu</td>
-                  <td>GD3</td>
-                  <td>Monday</td>
-                  <td>
-                    <i
-                      onclick=""
-                      id="icon_delete_result"
-                      class="fa-solid fa-trash"
-                    ></i>
-                  </td>
-                </tr>
+                <%
+                let count = 0; 
+                for(subject of userSchedules.data){ 
+                %>
+                  <tr>
+                    <td width="50px">
+                      <%= subject.title %>
+                    </td>
+                    <td>
+                      <%= subject.location %>
+                    </td>
+                    <td>
+                      <%= DAY[subject.day] %>
+                    </td>
+                    <td>
+                      <i
+                        onclick="deleteSchedue(<%= count %>)"
+                        id="icon_delete_result"
+                        class="fa-solid fa-trash result-subject-<%= count %>"
+                      ></i>
+                    </td>
+                  </tr>
+                <% 
+                  count += 1;
+                } %>
               </tbody>
             </table>
           </div>
         </div>
       </div>
       <div class="container">
-        <button class="button">Courses from regristration</button>
+        <button class="button" onclick="switchToTakes()">Courses from regristration</button>
       </div>
     </section>
     <!-- Calendarsection end ! -->
@@ -253,5 +231,15 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="/script/userPages/schedule.js"></script>
+    <script>
+      getData(
+        "<%= JSON.stringify(userSchedules) %>",
+        "<%= JSON.stringify(userSections) %>",
+        "<%= JSON.stringify(userTakes) %>",
+        <%= userID %>,
+        "<%= JSON.stringify(DAY) %>"
+         );
+      showSchedule();
+    </script>
   </body>
 </html>
