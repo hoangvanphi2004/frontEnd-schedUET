@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -104,6 +105,7 @@
               <th>Name</th>
               <th>Email</th>
               <th>Facucity</th>
+              <th>Role</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -114,6 +116,7 @@
               <td>NVT</td>
               <td>22028182@vnu.edu.vn</td>
               <td>FIT</td>
+              <td>nan</td>
               <td>
                 <i
                   id="icon_add_teacher"
@@ -128,6 +131,29 @@
                 ></i>
               </td>
             </tr>
+            <% for (let i = 0; i < data.length; i++) { %>
+              <tr>
+                <td id="teacherID-<%= i %>"><%= data[i].teacherID %></td>
+                <td id="name-<%= i %>"><%= data[i].name %></td>
+                <td id="email-<%= i %>"><%= data[i].email %></td>
+                <td id="faculty-<%= i %>"><%= data[i].faculty %></td>
+                <td id="role-<%= i %>"><%= data[i].role %></td>
+                <td>
+                  <i
+                    onclick="openEditTab(this)"
+                    id="icon_add_teacher_<%= i %>"
+                    class="icon_add_teacher fa-regular fa-pen-to-square"
+                  ></i>
+                </td>
+                <td>
+                  <i
+                    onclick="delete_teacher(this)"
+                    id="icon_delete_teacher_<%= i %>"
+                    class="icon_delete_teacher fa-solid fa-trash"
+                  ></i>
+                </td>
+              </tr>
+            <% } %>
           </tbody>
         </table>
       </div>
@@ -156,7 +182,7 @@
               <div class="form_teacher_add_group">
                 <input
                   type="text"
-                  id="id_teacher_addInput"
+                  id="teacherID_addInput"
                   class="form_teacher_add_Input"
                   placeholder="Enter new teacherId"
                 />
@@ -164,15 +190,15 @@
               <div class="form_teacher_add_group">
                 <input
                   type="text"
-                  id="nameteacher_teacher_addInput"
+                  id="teacherName_addInput"
                   class="form_teacher_add_Input"
-                  placeholder="Enter new Nameteacher"
+                  placeholder="Enter new teacher name"
                 />
               </div>
               <div class="form_teacher_add_group">
                 <input
                   type="text"
-                  id="email_teacher_addInput"
+                  id="teacherEmail_addInput"
                   class="form_teacher_add_Input"
                   placeholder="Enter new email"
                 />
@@ -180,9 +206,17 @@
               <div class="form_teacher_add_group">
                 <input
                   type="text"
-                  id="facucity_teacher_addInput"
+                  id="teacherFaculty_addInput"
                   class="form_teacher_add_Input"
                   placeholder="Enter new facucity"
+                />
+              </div>
+              <div class="form_teacher_add_group">
+                <input
+                  type="text"
+                  id="teacherRole_addInput"
+                  class="form_teacher_add_Input"
+                  placeholder="Enter new role"
                 />
               </div>
             </div>
@@ -215,7 +249,7 @@
               <div class="form_teacher_edit_group">
                 <input
                   type="text"
-                  id="id_teacher_editInput"
+                  id="teacherID_editInput"
                   class="form_teacher_edit_Input"
                   placeholder="Enter new teacherId"
                 />
@@ -223,15 +257,15 @@
               <div class="form_teacher_edit_group">
                 <input
                   type="text"
-                  id="nameteacher_teacher_editInput"
+                  id="teacherName_editInput"
                   class="form_teacher_edit_Input"
-                  placeholder="Enter new Nameteacher"
+                  placeholder="Enter new name"
                 />
               </div>
               <div class="form_teacher_edit_group">
                 <input
                   type="text"
-                  id="email_teacher_editInput"
+                  id="teacherEmail_editInput"
                   class="form_teacher_edit_Input"
                   placeholder="Enter new email"
                 />
@@ -239,9 +273,17 @@
               <div class="form_teacher_edit_group">
                 <input
                   type="text"
-                  id="facucity_teacher_editInput"
+                  id="teacherFaculty_editInput"
                   class="form_teacher_edit_Input"
                   placeholder="Enter new facucity"
+                />
+              </div>
+              <div class="form_teacher_edit_group">
+                <input
+                  type="text"
+                  id="teacherRole_editInput"
+                  class="form_teacher_edit_Input"
+                  placeholder="Enter new role"
                 />
               </div>
             </div>

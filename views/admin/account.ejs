@@ -129,24 +129,25 @@
               </td>
             </tr>
             <% for (let i = 0; i < data.length; i++) { %>
-              <tr>
-                <td id="userID-<%= i %>"><%= data[i].userID %></td>
-                <td id="password-<%= i %>"><%= data[i].password %></td>
-                <td id="isAdmin-<%= i %>"><%= data[i].isAdmin %></td>
-                <td>
-                  <i
-                    id="icon_add_account_<%= i %>"
-                    class="fa-regular fa-pen-to-square"
-                  ></i>
-                </td>
-                <td>
-                  <i
-                    onclick="delete_account(this)"
-                    id="icon_delete_account<%= i %>"
-                    class="fa-solid fa-trash"
-                  ></i>
-                </td>
-              </tr>
+            <tr>
+              <td id="userID-<%= i %>"><%= data[i].userID %></td>
+              <td id="password-<%= i %>"><%= data[i].password %></td>
+              <td id="isAdmin-<%= i %>"><%= data[i].isAdmin %></td>
+              <td>
+                <i
+                  onclick="openEditTab(this)"
+                  id="icon_add_account_<%= i %>"
+                  class="icon_add_account fa-regular fa-pen-to-square"
+                ></i>
+              </td>
+              <td>
+                <i
+                  onclick="delete_account(this)"
+                  id="icon_delete_account_<%= i %>"
+                  class="icon_delete_account fa-solid fa-trash"
+                ></i>
+              </td>
+            </tr>
             <% } %>
           </tbody>
         </table>
@@ -177,25 +178,25 @@
               <div class="form_account_add_group">
                 <input
                   type="text"
-                  id="id_account_addInput"
+                  id="userID_addInput"
                   class="form_account_add_Input"
-                  placeholder="Enter new accountId"
+                  placeholder="Enter new userID"
                 />
               </div>
               <div class="form_account_add_group">
                 <input
                   type="text"
-                  id="email_account_addInput"
-                  class="form_account_add_Input"
-                  placeholder="Enter new Email"
-                />
-              </div>
-              <div class="form_account_add_group">
-                <input
-                  type="text"
-                  id="password_account_addInput"
+                  id="password_addInput"
                   class="form_account_add_Input"
                   placeholder="Enter new password"
+                />
+              </div>
+              <div class="form_account_add_group">
+                <input
+                  type="text"
+                  id="isAdmin_addInput"
+                  class="form_account_add_Input"
+                  placeholder="Enter new role (0 for user and 1 for admin)"
                 />
               </div>
             </div>
@@ -228,7 +229,7 @@
               <div class="form_account_edit_group">
                 <input
                   type="text"
-                  id="id_account_editInput"
+                  id="userID_editInput"
                   class="form_account_edit_Input"
                   placeholder="Enter new userID"
                 />
@@ -236,7 +237,7 @@
               <div class="form_account_edit_group">
                 <input
                   type="text"
-                  id="email_account_editInput"
+                  id="password_editInput"
                   class="form_account_edit_Input"
                   placeholder="Enter new password"
                 />
@@ -244,7 +245,7 @@
               <div class="form_account_edit_group">
                 <input
                   type="text"
-                  id="password_account_editInput"
+                  id="isAdmin_editInput"
                   class="form_account_edit_Input"
                   placeholder="Choose role"
                 />

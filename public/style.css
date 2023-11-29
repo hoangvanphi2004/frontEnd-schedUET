@@ -1017,7 +1017,16 @@ header .icons i:hover {
     cursor: pointer;
 }
 
+.icon_add_teacher:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
 #icon_delete_teacher:hover {
+    cursor: pointer;
+}
+
+.icon_delete_teacher:hover {
     cursor: pointer;
 }
 
@@ -1135,6 +1144,11 @@ header .icons i:hover {
     transform: translateY(4px);
 }
 
+.icon_add_account:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
 #icon_add_account:hover {
     background-color: #ddd;
     cursor: pointer;
@@ -1143,6 +1157,11 @@ header .icons i:hover {
 #icon_delete_account:hover {
     cursor: pointer;
 }
+
+.icon_delete_account:hover {
+    cursor: pointer;
+}
+
 
 
 /********************** Modal*/

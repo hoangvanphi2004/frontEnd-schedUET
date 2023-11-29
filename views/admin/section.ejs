@@ -101,132 +101,41 @@
             <tr class="header">
               <th>CourseID</th>
               <th>SectionID</th>
-              <th>Course</th>
-              <th>Credit</th>
-              <th>Detail</th>
-              <th>Day</th>
-              <th>Teacher</th>
-              <th>Room</th>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Week day</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>TeacherID</th>
+              <th>Capacity</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
-              </td>
-              <td>
-                <i
-                  onclick="deletetable_registration(this)"
-                  id="icon_delete"
-                  class="fa-solid fa-trash"
-                ></i>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Xac suat thong ke</td>
-              <td>3</td>
-              <td>3-4</td>
-              <td>3</td>
-              <td>Pham cao cuong</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
-              </td>
-              <td>
-                <i
-                  onclick="deletetable_registration(this)"
-                  id="icon_delete"
-                  class="fa-solid fa-trash"
-                ></i>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Kien truc may tinh</td>
-              <td>4</td>
-              <td>5-6</td>
-              <td>4</td>
-              <td>Tran trung hieu</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
-              </td>
-              <td>
-                <i
-                  onclick="deletetable_registration(this)"
-                  id="icon_delete"
-                  class="fa-solid fa-trash"
-                ></i>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>lap trinh huong doi tuong</td>
-              <td>3</td>
-              <td>3-4</td>
-              <td>5</td>
-
-              <td>nguyen thi thanh nhan</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
-              </td>
-              <td>
-                <i
-                  onclick="deletetable_registration(this)"
-                  id="icon_delete"
-                  class="fa-solid fa-trash"
-                ></i>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
-              </td>
-              <td>
-                <i
-                  onclick="deletetable_registration(this)"
-                  id="icon_delete"
-                  class="fa-solid fa-trash"
-                ></i>
-              </td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
-              </td>
-              <td>
-                <i
-                  onclick="deletetable_registration(this)"
-                  id="icon_delete"
-                  class="fa-solid fa-trash"
-                ></i>
-              </td>
-            </tr>
+            <% for (let i = 0; i < data.length; i++) { %>
+              <tr>
+                <td id="courseID-<%= i %>"><%= data[i].courseID %></td>
+                <td id="sectionID-<%= i %>"><%= data[i].sectionID %></td>
+                <td id="title-<%= i %>"><%= data[i].title %></td>
+                <td id="location-<%= i %>"><%= data[i].location %></td>
+                <td id="day-<%= i %>"><%= data[i].day %></td>
+                <td id="start-<%= i %>"><%= data[i].start %></td>
+                <td id="end-<%= i %>"><%= data[i].end %></td>
+                <td id="teacherID-<%= i %>"><%= data[i].teacherID %></td>
+                <td id="capacity-<%= i %>"><%= data[i].capacity %></td>
+                <td>
+                  <i id="icon_add" class="fa-regular fa-pen-to-square"></i>
+                </td>
+                <td>
+                  <i
+                    onclick="deletetable_registration(this)"
+                    id="icon_delete"
+                    class="fa-solid fa-trash"
+                  ></i>
+                </td>
+              </tr>
+            <% } %>
           </tbody>
         </table>
       </div>
