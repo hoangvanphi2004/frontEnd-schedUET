@@ -899,6 +899,15 @@ header .icons i:hover {
     cursor: pointer;
 }
 
+.icon_add_course:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.icon_delete_course:hover {
+    cursor: pointer;
+}
+
 /************teacher_ADmin*******************/
 
 .teacher {

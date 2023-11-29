@@ -131,15 +131,16 @@
                   <td id="credits-<%= i %>"><%= data[i].credits %></td>
                   <td>
                     <i
-                      id="icon_add_account_<%= i %>"
-                      class="fa-regular fa-pen-to-square"
+                      onclick="openEditTab(this)"
+                      id="icon_add_course_<%= i %>"
+                      class="icon_add_course fa-regular fa-pen-to-square"
                     ></i>
                   </td>
                   <td>
                     <i
                       onclick="delete_course(this)"
-                      id="icon_delete_account<%= i %>"
-                      class="fa-solid fa-trash"
+                      id="icon_delete_course_<%= i %>"
+                      class="icon_delete_course fa-solid fa-trash"
                     ></i>
                   </td>
                 </tr>
@@ -173,7 +174,7 @@
               <div class="form_course_add_group">
                 <input
                   type="text"
-                  id="id_course_addInput"
+                  id="courseID_addInput"
                   class="form_course_add_Input"
                   placeholder="Enter new courseId"
                 />
@@ -181,41 +182,17 @@
               <div class="form_course_add_group">
                 <input
                   type="text"
-                  id="course_course_addInput"
+                  id="title_addInput"
                   class="form_course_add_Input"
-                  placeholder="Enter new course"
+                  placeholder="Enter new title"
                 />
               </div>
               <div class="form_course_add_group">
                 <input
                   type="text"
-                  id="cradd_course_addInput"
+                  id="credits_addInput"
                   class="form_course_add_Input"
                   placeholder="Enter new credit"
-                />
-              </div>
-              <div class="form_course_add_group">
-                <input
-                  type="text"
-                  id="detail_course_addInput"
-                  class="form_course_add_Input"
-                  placeholder="Enter new detail"
-                />
-              </div>
-              <div class="form_course_add_group">
-                <input
-                  type="text"
-                  id="day_course_addInput"
-                  class="form_course_add_Input"
-                  placeholder="Enter new day"
-                />
-              </div>
-              <div class="form_course_add_group">
-                <input
-                  type="text"
-                  id="room_course_addInput"
-                  class="form_course_add_Input"
-                  placeholder="Enter new room"
                 />
               </div>
             </div>
@@ -248,7 +225,7 @@
               <div class="form_course_edit_group">
                 <input
                   type="text"
-                  id="id_course_editInput"
+                  id="courseID_editInput"
                   class="form_course_edit_Input"
                   placeholder="Enter new courseId"
                 />
@@ -256,7 +233,7 @@
               <div class="form_course_edit_group">
                 <input
                   type="text"
-                  id="course_course_editInput"
+                  id="title_editInput"
                   class="form_course_edit_Input"
                   placeholder="Enter new course"
                 />
@@ -264,33 +241,9 @@
               <div class="form_course_edit_group">
                 <input
                   type="text"
-                  id="credit_course_editInput"
+                  id="credits_editInput"
                   class="form_course_edit_Input"
                   placeholder="Enter new credit"
-                />
-              </div>
-              <div class="form_course_edit_group">
-                <input
-                  type="text"
-                  id="detail_course_editInput"
-                  class="form_course_edit_Input"
-                  placeholder="Enter new detail"
-                />
-              </div>
-              <div class="form_course_edit_group">
-                <input
-                  type="text"
-                  id="day_course_editInput"
-                  class="form_course_edit_Input"
-                  placeholder="Enter new day"
-                />
-              </div>
-              <div class="form_course_edit_group">
-                <input
-                  type="text"
-                  id="room_course_editInput"
-                  class="form_course_edit_Input"
-                  placeholder="Enter new room"
                 />
               </div>
             </div>
