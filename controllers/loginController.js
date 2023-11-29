@@ -9,7 +9,7 @@ const logInBE = wrapper(async (req, res, next) => {
   const username = req.body.userID;
   const password = req.body.password;
   await axios
-    .post("http://localhost:8000/login", {
+    .post(`http://localhost:8000/login`, {
       userID: username,
       password: password,
     })
