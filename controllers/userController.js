@@ -33,7 +33,15 @@ const getMaterials = wrapper(async (req, res, next) => {
 });
 
 const getRegistrations = wrapper(async (req, res, next) => {
-  res.render("user/registration");
+  const userSections = (await axios.get(`${process.env.BASE_URL}/registrations/sections/${global.account.userID}`)).data;
+  const userTakes = (await axios.get(`${process.env.BASE_URL}/registrations/takes/${global.account.userID}`)).data;
+  
+  res.render("user/registration", {
+    "userID": global.account.userID,
+    "userTakes": userTakes,
+    "userSections": userSections,
+    "DAY": DAY
+  });
 });
 
 export { getMaterials, getRegistrations, getSchedules };

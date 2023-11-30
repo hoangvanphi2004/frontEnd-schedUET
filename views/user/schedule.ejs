@@ -181,7 +181,7 @@
               </thead>
               <tbody>
                 <%
-                let count = 0; 
+                let index = 0; 
                 for(subject of userSchedules.data){ 
                 %>
                   <tr>
@@ -196,14 +196,14 @@
                     </td>
                     <td>
                       <i
-                        onclick="deleteSchedue(<%= count %>)"
+                        onclick="deleteSchedue(<%= index %>)"
                         id="icon_delete_result"
-                        class="fa-solid fa-trash result-subject-<%= count %>"
+                        class="fa-solid fa-trash result-subject-<%= index %>"
                       ></i>
                     </td>
                   </tr>
                 <% 
-                  count += 1;
+                  index += 1;
                 } %>
               </tbody>
             </table>
