@@ -1,3 +1,4 @@
+const BASE_URL = "http://localhost:8000"
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
@@ -5,7 +6,6 @@ menu.onclick = () => {
   menu.classList.toggle('fa-times');
   navbar.classList.toggle('active');
 }
-
 
 document.querySelector('#search-icon').onclick = () => {
   document.querySelector('#search-form').classList.toggle('active');
@@ -60,4 +60,76 @@ function myFunctionMaterial() {
       }
     }
   }
+}
+
+let userSections, userTakes, userID, DAY;
+
+function getData(userSectionsFromEJS, userTakesFromEJS, userIDFromEJS, DAYFromEJS){
+  const parser = new DOMParser();
+  userSections = JSON.parse(parser.parseFromString(userSectionsFromEJS, 'text/html').body.innerHTML);
+  userTakes = JSON.parse(parser.parseFromString(userTakesFromEJS, 'text/html').body.innerHTML);
+  userID = userIDFromEJS;
+  DAY = JSON.parse(parser.parseFromString(DAYFromEJS, 'text/html').body.innerHTML);
+}
+
+function isIntersect(x1, y1, x2, y2){
+  return !((parseInt(y1) < parseInt(x2)) || (parseInt(y2) < parseInt(x1)));
+}
+
+function isConflict(section){
+  for(userTake of userTakes.data){
+      if(section.day == userTake.day && isIntersect(section.start, section.end, userTake.start, userTake.end)){
+          return true;
+      }
+  }
+  return false;
+}
+
+let prepareList = [];
+
+function addToPrepareList(index, thisBox){
+  if(thisBox.checked){
+    prepareList.push(userSections.data[index]);
+  }else{
+    prepareList = prepareList.filter((x) => x != userSections.data[index]);
+  }
+  console.log(prepareList);
+}
+
+async function sendToTakes(){
+  for(subject of prepareList){
+    const data = {"courseID": subject.courseID, "sectionID": subject.sectionID};
+    try{
+      if(isConflict(subject)){
+        let e = new Error();
+        e.message = "There are some conflict between subject";
+        throw e;
+      }else{
+        await fetch(`${BASE_URL}/registrations/${userID}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+      }
+    }catch(e){
+      alert(`Môn ${subject.title} đã bị trùng thời gian với môn học khác`);
+      location.reload();
+      process.exit(0);
+    }
+  }
+  location.reload();
+}
+
+async function deleteSubjectFromTakes(index){
+  const data = {"courseID": userTakes.data[index].courseID, "sectionID": userTakes.data[index].sectionID};
+  await fetch(`${BASE_URL}/registrations/${userID}`, {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+  });
+  location.reload();
 }

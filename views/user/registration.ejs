@@ -33,85 +33,32 @@
             </tr>
           </thead>
           <tbody>
+            <%
+            let index = 0;
+            for(section of userSections.data){ 
+            %>
             <tr>
-              <td>1</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
+              <td><%= section.courseID %></td>
+              <td><%= section.title %></td>
+              <td><%= section.credits %></td>
+              <td><%= section.start %>-<%= section.end %></td>
+              <td><%= DAY[section.day] %></td>
+              <td><%= section.name %></td>
+              <td><%= section.location %></td>
               <td>
-                <input type="checkbox" />
+                <input type="checkbox" onchange="addToPrepareList(<%= index %>, this)"/>
               </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Xac suat thong ke</td>
-              <td>3</td>
-              <td>3-4</td>
-              <td>3</td>
-              <td>Pham cao cuong</td>
-              <td>GD2</td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Kien truc may tinh</td>
-              <td>4</td>
-              <td>5-6</td>
-              <td>4</td>
-              <td>Tran trung hieu</td>
-              <td>GD2</td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>lap trinh huong doi tuong</td>
-              <td>3</td>
-              <td>3-4</td>
-              <td>5</td>
-
-              <td>nguyen thi thanh nhan</td>
-              <td>GD2</td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
+            <% 
+            index += 1;
+            } 
+            %>
           </tbody>
         </table>
       </div>
       <!-- button save -->
       <div class="container">
-        <button class="button">Save</button>
+        <button class="button" onclick="sendToTakes()">Save</button>
         <h1>Course List Regstrated</h1>
       </div>
       <!-- button save -->
@@ -132,78 +79,26 @@
             </tr>
           </thead>
           <tbody>
+            <% 
+            index = 0;
+            for(subject of userTakes.data){ 
+            %>
             <tr>
-              <td>1</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
+              <td><%= subject.courseID %></td>
+              <td><%= subject.title %></td>
+              <td><%= subject.credits %></td>
+              <td><%= subject.start %>-<%= subject.end %></td>
+              <td><%= DAY[subject.day] %></td>
+              <td><%= subject.name %></td>
+              <td><%= subject.location %></td>
               <td>
-                <i id="icon_delete" class="fa-solid fa-trash"></i>
+                <i id="icon_delete" class="fa-solid fa-trash" onclick="deleteSubjectFromTakes(<%= index %>)"></i>
               </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Xac suat thong ke</td>
-              <td>3</td>
-              <td>3-4</td>
-              <td>3</td>
-              <td>Pham cao cuong</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_delete" class="fa-solid fa-trash"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Kien truc may tinh</td>
-              <td>4</td>
-              <td>5-6</td>
-              <td>4</td>
-              <td>Tran trung hieu</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_delete" class="fa-solid fa-trash"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>lap trinh huong doi tuong</td>
-              <td>3</td>
-              <td>3-4</td>
-              <td>5</td>
-              <td>nguyen thi thanh nhan</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_delete" class="fa-solid fa-trash"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_delete" class="fa-solid fa-trash"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Co so du lieu</td>
-              <td>3</td>
-              <td>1-2</td>
-              <td>2</td>
-              <td>Dang hong hai</td>
-              <td>GD2</td>
-              <td>
-                <i id="icon_delete" class="fa-solid fa-trash"></i>
-              </td>
-            </tr>
+            <% 
+            index += 1;
+            } 
+            %>
           </tbody>
         </table>
       </div>
@@ -226,5 +121,13 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="/script/userPages/registration.js"></script>
+    <script>
+      getData(
+        "<%= JSON.stringify(userSections) %>",
+        "<%= JSON.stringify(userTakes) %>",
+        <%= userID %>,
+        "<%= JSON.stringify(DAY) %>"
+         );
+    </script>
   </body>
 </html>
