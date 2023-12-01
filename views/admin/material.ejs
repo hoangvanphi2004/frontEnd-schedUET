@@ -94,21 +94,22 @@
         <div class="search_material">
             <div class="search_material-selection">
                 <div class="icon_material-selection">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i onclick="search_Material()" class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <input type="text" id="myInput_material" onkeyup="myFunctionMaterial()" placeholder="Search material....">
+            <input type="text" id="myInput_material" placeholder="Search material....">
         </div>
         <div class="filer_material">
             <button onclick="myFunctionFilter()" class="filter_btn">Filter
                 <i class="fa-solid fa-filter"></i> </button>
             <div id="myFilter_content" class="filter_content">
-              <a href="">MaterialId</a>
-              <a href="">NameMaterial</a>
-              <a href="">Author</a>
-              <a href="">Publiser</a>
-              <a href="">CourseTiltle</a>
-              <a href="">PublishYear</a>
+              <a><input id="courseID_checkbox" class="searchCheckBox" type="checkbox">courseId</a>
+              <a><input id="materialID_checkbox" class="searchCheckBox" type="checkbox">materialID</a>
+              <a><input id="name_checkbox" class="searchCheckBox" type="checkbox">name</a>
+              <a><input id="courseTitle_checkbox" class="searchCheckBox" type="checkbox">courseTitle</a>
+              <a><input id="author_checkbox" class="searchCheckBox" type="checkbox">author</a>
+              <a><input id="publisher_checkbox" class="searchCheckBox" type="checkbox">publisher</a>
+              <a><input id="publishYear_checkbox" class="searchCheckBox" type="checkbox">publishYear</a>
             </div>
         </div>  
     </div>

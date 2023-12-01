@@ -22,7 +22,7 @@ const getCourses = wrapper(async (req, res, next) => {
 });
 
 const getMaterials = wrapper(async (req, res, next) => {
-  const query = "?q=&mode=0";
+  let query = "?q=&mode=0";
   
   await axios.get(`${process.env.BASE_URL}/materials/search${query}`).then((result) => {
     if (result.data.status == "success") {
