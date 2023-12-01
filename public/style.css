@@ -551,7 +551,12 @@ header .icons i:hover {
     border: 1px solid black;
 } */
 
-#icon_add:hover {
+#icon_add_section:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.icon_add_section:hover {
     background-color: #ddd;
     cursor: pointer;
 }
@@ -655,7 +660,13 @@ header .icons i:hover {
     width: 300px;
 }
 
-#icon_delete:hover {
+#icon_delete_section:hover {
+    cursor: pointer;
+}
+
+
+.icon_delete_section:hover {
+    background-color: #ddd;
     cursor: pointer;
 }
 
@@ -671,12 +682,18 @@ header .icons i:hover {
     margin-top: 4rem;
 }
 
+.search_and_filter_material {
+    justify-content: space-between;
+    text-align: center;
+}
+
 .search_material {
     flex: 0.5px;
     height: 30px;
     width: 40%;
     border: 0.1rem solid black;
-    margin-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: -2rem;
     border-radius: 2px;
     display: flex;
     align-items: center;
@@ -692,6 +709,57 @@ header .icons i:hover {
     transform: rotate(360deg);
     cursor: pointer;
 }
+
+.filter_btn {
+    background-color:  lightskyblue;
+    color: #192a56;
+    padding: 1px 2px;
+    font-size: 1.8rem;
+    border-radius: 2px;
+    border: solid 0.5px black;
+    cursor: pointer;
+    
+  }
+
+  .filter_btn i:hover {
+    transform: rotate(360deg);
+    cursor: pointer;
+  }
+  
+  .filter_btn:hover, .filter_btn:focus {
+    background-color: #dbdbdb;
+  }
+  
+  .filer_material {
+    position: relative;
+    display: inline-block;
+    margin-top: -20rem;
+    margin-right: 15rem;
+    padding-bottom: -10px;
+  }
+  
+  .filter_content {
+    display: none;
+    position: absolute;
+    background-color: #eee;
+    min-width: 160px;
+    margin-top: 0.5rem;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .filter_content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+  }
+  
+  .filter_content a:hover {background-color: white;}
+  
+  .show {display: block;}
 
 .material_table_data {
     display: block;
@@ -780,6 +848,15 @@ header .icons i:hover {
 }
 
 #icon_delete_material:hover {
+    cursor: pointer;
+}
+
+.icon_add_material:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.icon_delete_material:hover {
     cursor: pointer;
 }
 
@@ -905,6 +982,15 @@ header .icons i:hover {
     cursor: pointer;
 }
 
+.icon_add_course:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.icon_delete_course:hover {
+    cursor: pointer;
+}
+
 /************teacher_ADmin*******************/
 
 .teacher {
@@ -1023,7 +1109,16 @@ header .icons i:hover {
     cursor: pointer;
 }
 
+.icon_add_teacher:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
 #icon_delete_teacher:hover {
+    cursor: pointer;
+}
+
+.icon_delete_teacher:hover {
     cursor: pointer;
 }
 
@@ -1141,6 +1236,11 @@ header .icons i:hover {
     transform: translateY(4px);
 }
 
+.icon_add_account:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
 #icon_add_account:hover {
     background-color: #ddd;
     cursor: pointer;
@@ -1150,18 +1250,25 @@ header .icons i:hover {
     cursor: pointer;
 }
 
+.icon_delete_account:hover {
+    cursor: pointer;
+}
+
+
 
 /********************** Modal*/
-.modal {
+.modal_section {
     position: fixed;
     right: 0;
     bottom: 0;
-    left: 0;
-    display: flex;
+    left: 0;    
+    top:0;
+    display: none;
+    z-index: 101;
 }
 
-#modal {
-    top: -110%;
+#modal_section {
+    top: 0%;
 }
 
 .form_add {
@@ -1238,11 +1345,12 @@ header .icons i:hover {
 }
 
 
-#modal.active {
+#modal_section.active {
+    display: flex;
     top: 0;
 }
 
-#close_add_regristration {
+#close_add_section {
     position: absolute;
     color: #fff;
     cursor: pointer;
@@ -1252,15 +1360,17 @@ header .icons i:hover {
 }
 
 /* Modal1 */
-.modal_1 {
+.modal_1_section {
     position: fixed;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 0;    
+    top:0;
     display: none;
+    z-index: 101;
 }
 
-#modal_1 {
+#modal_1_section {
     top: -110%;
 }
 
@@ -1337,13 +1447,13 @@ header .icons i:hover {
     margin-top: 1rem
 }
 
-#modal_1.active {
+#modal_1_section.active {
     display: flex;
     z-index: 101;
     top: 0;
 }
 
-#close_edit_regristration {
+#close_edit_section {
     position: absolute;
     color: #fff;
     cursor: pointer;

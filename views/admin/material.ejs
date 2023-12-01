@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -88,57 +89,77 @@
     <!-- study_material strart-->
     <section class="study_material" id="study_material">
       <h1>Material God</h1>
-      <div class="search_material">
-        <div class="search_material-selection">
-          <div class="icon_material-selection">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
+      
+      <div class="search_and_filter_material">
+        <div class="search_material">
+            <div class="search_material-selection">
+                <div class="icon_material-selection">
+                    <i onclick="search_Material()" class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <input type="text" id="myInput_material" placeholder="Search material....">
         </div>
-        <input
-          type="text"
-          id="myInput_material"
-          onkeyup="myFunctionMaterial()"
-          placeholder="Search material...."
-        />
-      </div>
+        <div class="filer_material">
+            <button onclick="myFunctionFilter()" class="filter_btn">Filter
+                <i class="fa-solid fa-filter"></i> </button>
+            <div id="myFilter_content" class="filter_content">
+              <a><input id="courseID_checkbox" class="searchCheckBox" type="checkbox">courseId</a>
+              <a><input id="materialID_checkbox" class="searchCheckBox" type="checkbox">materialID</a>
+              <a><input id="name_checkbox" class="searchCheckBox" type="checkbox">name</a>
+              <a><input id="courseTitle_checkbox" class="searchCheckBox" type="checkbox">courseTitle</a>
+              <a><input id="author_checkbox" class="searchCheckBox" type="checkbox">author</a>
+              <a><input id="publisher_checkbox" class="searchCheckBox" type="checkbox">publisher</a>
+              <a><input id="publishYear_checkbox" class="searchCheckBox" type="checkbox">publishYear</a>
+            </div>
+        </div>  
+    </div>
+
+
       <div class="material_table_data">
         <table id="myTable_data_material">
           <thead>
             <tr class="header">
-              <th>MaterialId</th>
-              <th>NameMaterial</th>
-              <th>Author</th>
-              <th>publiser</th>
-              <th>CourseTitle</th>
-              <th>PushlishYear</th>
-              <th>Link</th>
+              <th>courseID</th>
+              <th>materialID</th>
+              <th>name</th>
+              <th>link</th>
+              <th>courseTitle</th>
+              <th>author</th>
+              <th>publisher</th>
+              <th>publishYear</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Co so du lieu Bt</td>
-              <td>nguyen van a</td>
-              <td>22</td>
-              <td>CSDL</td>
-              <td>2023</td>
-              <td><a href="https://uet.vnu.edu.vn/en/">Link</a></td>
-              <td>
-                <i
-                  id="icon_add_material"
-                  class="fa-regular fa-pen-to-square"
-                ></i>
-              </td>
-              <td>
-                <i
-                  onclick="deletetable_material(this)"
-                  id="icon_delete_material"
-                  class="fa-solid fa-trash"
-                ></i>
-              </td>
-            </tr>
+
+            <% for (let i = 0; i < data.length; i++) { %>
+              <tr>
+                <td id="courseID-<%= i %>"><%= data[i].courseID %></td>
+                <td id="materialID-<%= i %>"><%= data[i].materialID %></td>
+                <td id="name-<%= i %>"><%= data[i].name %></td>
+                <td id="link-<%= i %>"><%= data[i].link %></td>
+                <td id="courseTitle-<%= i %>"><%= data[i].courseTitle %></td>
+                <td id="author-<%= i %>"><%= data[i].author %></td>
+                <td id="publisher-<%= i %>"><%= data[i].publisher %></td>
+                <td id="publishYear-<%= i %>"><%= data[i].publishYear %></td>
+                <td>
+                  <i
+                    onclick="openEditTab(this)"
+                    id="icon_add_material_<%= i %>"
+                    class="icon_add_material fa-regular fa-pen-to-square"
+                  ></i>
+                </td>
+                <td>
+                  <i
+                    onclick="deleteData_Material(this)"
+                    id="icon_delete_material_<%= i %>"
+                    class="icon_delete_material fa-solid fa-trash"
+                  ></i>
+                </td>
+              </tr>
+            <% } %>
+
           </tbody>
         </table>
       </div>
@@ -161,57 +182,65 @@
               <div class="form_material_add_group">
                 <input
                   type="text"
-                  id="id_material_addInput"
+                  id="courseID_addInput"
                   class="form_material_add_Input"
-                  placeholder="Enter new materialId"
+                  placeholder="Enter new courseID"
                 />
               </div>
               <div class="form_material_add_group">
                 <input
                   type="text"
-                  id="nameMaterial_material_addInput"
+                  id="materialID_addInput"
                   class="form_material_add_Input"
-                  placeholder="Enter new Namematerial"
+                  placeholder="Enter new materialID"
                 />
               </div>
               <div class="form_material_add_group">
                 <input
                   type="text"
-                  id="author_material_addInput"
+                  id="name_addInput"
                   class="form_material_add_Input"
-                  placeholder="Enter new author"
+                  placeholder="Enter new name"
                 />
               </div>
               <div class="form_material_add_group">
                 <input
                   type="text"
-                  id="publiser_material_addInput"
-                  class="form_material_add_Input"
-                  placeholder="Enter new publiser"
-                />
-              </div>
-              <div class="form_material_add_group">
-                <input
-                  type="text"
-                  id="title_material_addInput"
-                  class="form_material_add_Input"
-                  placeholder="Enter new title"
-                />
-              </div>
-              <div class="form_material_add_group">
-                <input
-                  type="text"
-                  id="year_material_addInput"
-                  class="form_material_add_Input"
-                  placeholder="Enter new year"
-                />
-              </div>
-              <div class="form_material_add_group">
-                <input
-                  type="text"
-                  id="link_material_addInput"
+                  id="link_addInput"
                   class="form_material_add_Input"
                   placeholder="Enter new link"
+                />
+              </div>
+              <div class="form_material_add_group">
+                <input
+                  type="text"
+                  id="courseTitle_addInput"
+                  class="form_material_add_Input"
+                  placeholder="Enter new courseTitle"
+                />
+              </div>
+              <div class="form_material_add_group">
+                <input
+                  type="text"
+                  id="author_addInput"
+                  class="form_material_add_Input"
+                  placeholder="Enter author"
+                />
+              </div>
+              <div class="form_material_add_group">
+                <input
+                  type="text"
+                  id="publisher_addInput"
+                  class="form_material_add_Input"
+                  placeholder="Enter publisher"
+                />
+              </div>
+              <div class="form_material_add_group">
+                <input
+                  type="text"
+                  id="publishYear_addInput"
+                  class="form_material_add_Input"
+                  placeholder="Enter publishYear"
                 />
               </div>
             </div>
@@ -244,63 +273,71 @@
               <div class="form_material_edit_group">
                 <input
                   type="text"
-                  id="id_material_editInput"
+                  id="courseID_editInput"
                   class="form_material_edit_Input"
-                  placeholder="Enter new materialId"
+                  placeholder="Enter new courseID"
                 />
               </div>
               <div class="form_material_edit_group">
                 <input
                   type="text"
-                  id="nameMaterial_material_editInput"
+                  id="materialID_editInput"
                   class="form_material_edit_Input"
-                  placeholder="Enter new Namematerial"
+                  placeholder="Enter new materialID"
                 />
               </div>
               <div class="form_material_edit_group">
                 <input
                   type="text"
-                  id="author_material_editInput"
+                  id="name_editInput"
                   class="form_material_edit_Input"
-                  placeholder="Enter new author"
+                  placeholder="Enter new name"
                 />
               </div>
               <div class="form_material_edit_group">
                 <input
                   type="text"
-                  id="publiser_material_editInput"
-                  class="form_material_edit_Input"
-                  placeholder="Enter new publiser"
-                />
-              </div>
-              <div class="form_material_edit_group">
-                <input
-                  type="text"
-                  id="title_material_editInput"
-                  class="form_material_edit_Input"
-                  placeholder="Enter new title"
-                />
-              </div>
-              <div class="form_material_edit_group">
-                <input
-                  type="text"
-                  id="year_material_editInput"
-                  class="form_material_edit_Input"
-                  placeholder="Enter new year"
-                />
-              </div>
-              <div class="form_material_edit_group">
-                <input
-                  type="text"
-                  id="link_material_editInput"
+                  id="link_editInput"
                   class="form_material_edit_Input"
                   placeholder="Enter new link"
+                />
+              </div>
+              <div class="form_material_edit_group">
+                <input
+                  type="text"
+                  id="courseTitle_editInput"
+                  class="form_material_edit_Input"
+                  placeholder="Enter new courseTitle"
+                />
+              </div>
+              <div class="form_material_edit_group">
+                <input
+                  type="text"
+                  id="author_editInput"
+                  class="form_material_edit_Input"
+                  placeholder="Enter author"
+                />
+              </div>
+              <div class="form_material_edit_group">
+                <input
+                  type="text"
+                  id="publisher_editInput"
+                  class="form_material_edit_Input"
+                  placeholder="Enter publisher"
+                />
+              </div>
+              <div class="form_material_edit_group">
+                <input
+                  type="text"
+                  id="publishYear_editInput"
+                  class="form_material_edit_Input"
+                  placeholder="Enter publishYear"
                 />
               </div>
             </div>
             <div class="form_material_edit_btn">
               <button
-                onclick="editData_material()"
+                onclick="editData_Material()"
                 id="updatebutton_material"
                 class="button btn--disable"
               >

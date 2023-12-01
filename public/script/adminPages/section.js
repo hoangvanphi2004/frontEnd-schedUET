@@ -1,20 +1,30 @@
-let menu = document.querySelector('#menu-bars');
-let navbar = document.querySelector('.navbar');
+let menu = document.querySelector("#menu-bars");
+let navbar = document.querySelector(".navbar");
 
 menu.onclick = () => {
-  menu.classList.toggle('fa-times');
-  navbar.classList.toggle('active');
-}
+  menu.classList.toggle("fa-times");
+  navbar.classList.toggle("active");
+};
 
+document.querySelector("#addtable_section_admin").onclick = () => {
+  document.querySelector("#modal_section").classList.toggle("active");
+};
 
-document.querySelector('#search-icon').onclick = () => {
-  document.querySelector('#search-form').classList.toggle('active');
-}
+document.querySelector("#close_add_section").onclick = () => {
+  document.querySelector("#modal_section").classList.remove("active");
+};
 
-document.querySelector('#close').onclick = () => {
-  document.querySelector('#search-form').classList.remove('active');
-}
+document.querySelector("#close_edit_section").onclick = () => {
+  document.querySelector("#modal_1_section").classList.remove("active");
+};
 
+document.querySelector("#search-icon").onclick = () => {
+  document.querySelector("#search-form").classList.toggle("active");
+};
+
+document.querySelector("#close").onclick = () => {
+  document.querySelector("#search-form").classList.remove("active");
+};
 
 function myFunction() {
   // Declare variables
@@ -31,7 +41,6 @@ function myFunction() {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
-
       } else {
         tr[i].style.display = "none";
       }
@@ -39,168 +48,150 @@ function myFunction() {
   }
 }
 
-function myFunctionMaterial() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput_material");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable_data_material");
-  tr = table.getElementsByTagName("tr");
+document.querySelectorAll("#icon_add").forEach(
+  (item) =>
+    (item.onclick = () => {
+      document.querySelector("#modal_1").classList.toggle("active");
+    })
+);
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-
-      } else {
-        tr[i].style.display = "none";
-      }
+//delete course
+async function delete_section(element) {
+  let sectionDataRow = element.parentNode.parentNode;
+  let indexOfDash = 0;
+  for (let i = element.id.length - 1; i >= 0; i--) {
+    if (element.id[i] == "_") {
+      indexOfDash = i;
+      break;
     }
   }
+  let num = element.id.substring(indexOfDash + 1);
+  let courseID = sectionDataRow.querySelector(`#courseID-${num}`).textContent;
+  let sectionID = sectionDataRow.querySelector(`#sectionID-${num}`).textContent;
+  // let location = sectionDataRow.querySelector(`#location-${num}`).textContent;
+  // let day = sectionDataRow.querySelector(`#day-${num}`).textContent;
+  // let start = sectionDataRow.querySelector(`#start-${num}`).textContent;
+  // let end = sectionDataRow.querySelector(`#end-${num}`).textContent;
+  // let teacherID = sectionDataRow.querySelector(`#teacherID-${num}`).textContent;
+  // let capacity = sectionDataRow.querySelector(`#capacity-${num}`).textContent;
+
+  await axios
+    .delete(`http://localhost:8000/sections/${courseID}/${sectionID}`)
+    .then((result) => {
+      location.reload();
+    })
+    .catch((err) => {
+      console.log("this is the error:");
+      console.log(err.response.data);
+      alert("Can't delete this account");
+    });
 }
 
+//add course
+async function addData_Section() {
+  let courseID = document.querySelector(`#courseID_addInput`).value;
+  let sectionID = document.querySelector(`#sectionID_addInput`).value;
+  let Location = document.querySelector(`#location_addInput`).value;
+  let day = document.querySelector(`#day_addInput`).value;
+  let start = document.querySelector(`#start_addInput`).value;
+  let end = document.querySelector(`#end_addInput`).value;
+  let teacherID = document.querySelector(`#teacherID_addInput`).value;
+  let capacity = document.querySelector(`#capacity_addInput`).value;
 
-/*************section and regristation js start******* */
-/****************************************************** */
+  console.log({
+    courseID: courseID,
+    sectionID: sectionID,
+    location: Location,
+    day: day,
+    start: start,
+    end: end,
+    teacherID: teacherID,
+    capacity: capacity,
+  });
 
-function deletetable_registration(i) {
-  // Get the parent row of the clicked button 
-  let row = i.parentNode.parentNode;
-
-  // Remove the row from the table 
-  row.parentNode.removeChild(row);
+  await axios
+    .post("http://localhost:8000/sections", {
+      courseID: courseID,
+      sectionID: sectionID,
+      location: Location,
+      day: day,
+      start: start,
+      end: end,
+      teacherID: teacherID,
+      capacity: capacity,
+    })
+    .then((result) => {
+      location.reload();
+    })
+    .catch((err) => {
+      console.log("this is the error:");
+      console.log(err.response.data);
+      alert("Can't add this course");
+    });
 }
 
-document.querySelectorAll('#icon_add').forEach(item => item.onclick = () => {
-  document.querySelector('#modal_1').classList.toggle('active');
-})
-
-document.querySelector('#close_edit_regristration').onclick = () => {
-  document.querySelector('#modal_1').classList.remove('active');
-}
-function edittable_resigstration(button) {
-  // Get the parent row of the clicked button 
-  let row = button.parentNode.parentNode;
-
-  // Get the cells within the row 
-  let CourseIdCell = row.cells[0];
-  let CourseCell = row.cells[1];
-  let CreditCell = row.cells[2];
-  let DetailCell = row.cells[3];
-  let DayCell = row.cells[4];
-  let TeacherCell = row.cells[5];
-  let RoomCell = row.cells[6];
-
-  // Update the cell contents with the new values 
-  CourseIdCell.innerHTML = CourseIdInput;
-  CourseCell.innerHTML = CourseInput;
-  CreditCell.innerHTML = CreditInput;
-  DetailCell.innerHTML = DetailInput;
-  DayCell.innerHTML = DayInput;
-  TeacherCell.innerHTML = TeacherInput;
-  RoomCell.innerHTML = RoomInput;
-}
-
-document.querySelector('#addtable_regristration').onclick = () => {
-  document.querySelector('#modal').classList.toggle('active');
-}
-
-
-
-document.querySelector('#close_add_regristration').onclick = () => {
-  document.querySelector('#modal').classList.remove('active');
-  clearInputs();
-}
-
-function addData_regristration() {
-  // Get input values 
-  let CourseId =
-    document.getElementById("CourseIdInput_add").value;
-  let Course =
-    document.getElementById("CourseInput_add").value;
-  let Credit =
-    document.getElementById("CreditInput_add").value;
-  let Detail =
-    document.getElementById("DetailInput_add").value;
-  let Day =
-    document.getElementById("DayInput_add").value;
-  let Teacher =
-    document.getElementById("TeacherInput_add").value;
-  let Room =
-    document.getElementById("RoomInput_add").value;
-
-  // Get the table and insert a new row at the end 
-  let table = document.getElementById("myTable_data");
-  let newRow = table.insertRow(table.rows.length);
-
-  if (CourseId == "") {
-    confirm("You need ENTER CourseId");
-    return;
+//edit course
+let editedCourseID = 0;
+let editedSectionID = 0;
+function openEditTab(element) {
+  let sectionDataRow = element.parentNode.parentNode;
+  let indexOfDash = 0;
+  for (let i = element.id.length - 1; i >= 0; i--) {
+    if (element.id[i] == "_") {
+      indexOfDash = i;
+      break;
+    }
   }
-  if (Course == "") {
-    confirm("You need ENTER Course");
-    return;
-  }
-  if (Credit == "") {
-    confirm("You need ENTER Credit");
-    return;
-  }
-  if (Detail == "") {
-    confirm("You need ENTER Detail");
-    return;
-  }
-  if (Day == "") {
-    confirm("You need ENTER Day");
-    return;
-  }
-  if (Teacher == "") {
-    confirm("You need ENTER Teacher");
-    return;
-  }
-  if (Room == "") {
-    confirm("You need ENTER Room");
-    return;
-  }
+  let num = element.id.substring(indexOfDash + 1);
+  let courseID = sectionDataRow.querySelector(`#courseID-${num}`).textContent;
+  let sectionID = sectionDataRow.querySelector(`#sectionID-${num}`).textContent;
+  let Location = sectionDataRow.querySelector(`#location-${num}`).textContent;
+  let day = sectionDataRow.querySelector(`#day-${num}`).textContent;
+  let start = sectionDataRow.querySelector(`#start-${num}`).textContent;
+  let end = sectionDataRow.querySelector(`#end-${num}`).textContent;
+  let teacherID = sectionDataRow.querySelector(`#teacherID-${num}`).textContent;
+  let capacity = sectionDataRow.querySelector(`#capacity-${num}`).textContent;
 
-  
-  // Insert data into cells of the new row 
-  newRow.insertCell(0).innerHTML = CourseId;
-  newRow.insertCell(1).innerHTML = Course;
-  newRow.insertCell(2).innerHTML = Credit;
-  newRow.insertCell(3).innerHTML = Detail;
-  newRow.insertCell(4).innerHTML = Day;
-  newRow.insertCell(5).innerHTML = Teacher;
-  newRow.insertCell(6).innerHTML = Room;
-  newRow.insertCell(7).innerHTML =
-    '<i onclick="edittable_resigstration(this)" id="icon_add" class="fa-regular fa-pen-to-square"></i>';
-  newRow.insertCell(8).innerHTML = ' <i onclick="deletetable_registration(this)" id="icon_delete" class="fa-solid fa-trash"></i>';
+  document.querySelector("#courseID_editInput").value = courseID;
+  document.querySelector("#sectionID_editInput").value = sectionID;
+  document.querySelector("#location_editInput").value = Location;
+  document.querySelector("#day_editInput").value = day;
+  document.querySelector("#start_editInput").value = start;
+  document.querySelector("#end_editInput").value = end;
+  document.querySelector("#teacherID_editInput").value = teacherID;
+  document.querySelector("#capacity_editInput").value = capacity;
+  document.querySelector("#modal_1_section").classList.toggle("active");
 
-
-  confirm("Your Data added");
-  clearInputs();
+  editedCourseID = courseID;
+  editedSectionID = sectionID;
 }
 
-function clearInputs() {
-  // Clear input fields 
-  document.getElementById("CourseIdInput_add").value = "";
-  document.getElementById("CourseInput_add").value = "";
-  document.getElementById("CreditInput_add").value = "";
-  document.getElementById("DetailInput_add").value = "";
-  document.getElementById("DayInput_add").value = "";
-  document.getElementById("TeacherInput_add").value = "";
-  document.getElementById("RoomInput_add").value = "";
-  document.querySelector('#addbutton_regristration').classList.remove('active');
-  document.querySelector('#modal').classList.remove('active');
+async function editData_Section() {
+  let courseID = document.querySelector("#courseID_editInput").value;
+  let sectionID = document.querySelector("#sectionID_editInput").value;
+  let Location = document.querySelector("#location_editInput").value;
+  let day = document.querySelector("#day_editInput").value;
+  let start = document.querySelector("#start_editInput").value;
+  let end = document.querySelector("#end_editInput").value;
+  let teacherID = document.querySelector("#teacherID_editInput").value;
+  let capacity = document.querySelector("#capacity_editInput").value;
+
+  await axios
+    .put(`http://localhost:8000/sections/${courseID}/${sectionID}`, {
+      courseID: courseID,
+      sectionID: sectionID,
+      location: Location,
+      day: day,
+      start: start,
+      end: end,
+      teacherID: teacherID,
+      capacity: capacity,
+    })
+    .then((result) => {
+      location.reload();
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      alert("Can't edit this teacher information");
+    });
 }
-
-/*************section and regristation js End******* */
-/*************************************************** */
-
-/***********COurse js start*******/
-/******************************** */
-
-/********************************* */
-/**********COURSE js end!!!!!!!! */
