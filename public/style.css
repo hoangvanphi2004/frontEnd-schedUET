@@ -676,12 +676,18 @@ header .icons i:hover {
     margin-top: 4rem;
 }
 
+.search_and_filter_material {
+    justify-content: space-between;
+    text-align: center;
+}
+
 .search_material {
     flex: 0.5px;
     height: 30px;
     width: 40%;
     border: 0.1rem solid black;
-    margin-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: -2rem;
     border-radius: 2px;
     display: flex;
     align-items: center;
@@ -697,6 +703,55 @@ header .icons i:hover {
     transform: rotate(360deg);
     cursor: pointer;
 }
+
+.filter_btn {
+    background-color:  lightskyblue;
+    color: #192a56;
+    padding: 1px 2px;
+    font-size: 2rem;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    
+  }
+
+
+  
+  .filter_btn:hover, .filter_btn:focus {
+    background-color: lightslategray;
+  }
+  
+  .filer_material {
+    position: relative;
+    display: inline-block;
+    margin-top: -20rem;
+    margin-right: 15rem;
+    padding-bottom: -10px;
+  }
+  
+  .filter_content {
+    display: none;
+    position: absolute;
+    background-color: #eee;
+    min-width: 160px;
+    height: 130px;
+    margin-top: 0.5rem;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .filter_content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+  }
+  
+  .filter_content a:hover {background-color: white;}
+  
+  .show {display: block;}
 
 .material_table_data {
     display: block;
@@ -784,7 +839,16 @@ header .icons i:hover {
     cursor: pointer;
 }
 
+.icon_add_material:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
 #icon_delete_material:hover {
+    cursor: pointer;
+}
+
+.icon_delete_material:hover {
     cursor: pointer;
 }
 

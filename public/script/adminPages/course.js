@@ -102,7 +102,7 @@ async function editData_Course() {
 
 
   await axios
-    .put(`http://localhost:8000/courses/${courseID}`, {
+    .put(`http://localhost:8000/courses/${editedCourseID}`, {
       courseID: courseID,
       title: title,
       credits: credits
