@@ -16,42 +16,70 @@
     <!-- study_material strart-->
     <section class="study_material" id="study_material">
       <h1>Material God</h1>
-      <div class="search_material">
-        <div class="search_material-selection">
-          <div class="icon_material-selection">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
+      
+      <div class="search_and_filter_material">
+        <div class="search_material">
+            <div class="search_material-selection">
+                <div class="icon_material-selection">
+                    <i onclick="search_Material()" class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <input type="text" id="myInput_material" placeholder="Search material....">
         </div>
-        <input
-          type="text"
-          id="myInput_material"
-          onkeyup="myFunctionMaterial()"
-          placeholder="Search material...."
-        />
-      </div>
+        <div class="filer_material">
+            <button onclick="myFunctionFilter()" class="filter_btn">Filter
+                <i class="fa-solid fa-filter"></i> </button>
+            <div id="myFilter_content" class="filter_content">
+              <a><input id="courseID_checkbox" class="searchCheckBox" type="checkbox">courseId</a>
+              <a><input id="materialID_checkbox" class="searchCheckBox" type="checkbox">materialID</a>
+              <a><input id="name_checkbox" class="searchCheckBox" type="checkbox">name</a>
+              <a><input id="courseTitle_checkbox" class="searchCheckBox" type="checkbox">courseTitle</a>
+              <a><input id="author_checkbox" class="searchCheckBox" type="checkbox">author</a>
+              <a><input id="publisher_checkbox" class="searchCheckBox" type="checkbox">publisher</a>
+              <a><input id="publishYear_checkbox" class="searchCheckBox" type="checkbox">publishYear</a>
+            </div>
+        </div>  
+    </div>
+
+
       <div class="material_table_data">
         <table id="myTable_data_material">
           <thead>
             <tr class="header">
-              <th>MaterialId</th>
-              <th>NameMaterial</th>
-              <th>Author</th>
-              <th>publiser</th>
-              <th>CourseTitle</th>
-              <th>PushlishYear</th>
-              <th>Link</th>
+              <th>courseID</th>
+              <th>materialID</th>
+              <th>name</th>
+              <th>link</th>
+              <th>courseTitle</th>
+              <th>author</th>
+              <th>publisher</th>
+              <th>publishYear</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Co so du lieu Bt</td>
-              <td>nguyen van a</td>
-              <td>22</td>
-              <td>CSDL</td>
-              <td>2023</td>
-              <td><a href="https://uet.vnu.edu.vn/en/">Link</a></td>
-            </tr>
+              
+              <%
+              for (const [i, userMaterial] of Object.entries(userMaterials.data)) {
+                if(userMaterial.name != 'nan' || userMaterial.link != 'nan'){
+              %>
+              <tr>
+                <td id="courseID-<%= i %>"><%= userMaterial.courseID %></td>
+                <td id="materialID-<%= i %>"><%= userMaterial.materialID %></td>
+                <td id="name-<%= i %>"><%= userMaterial.name %></td>
+                <% if(userMaterial.link == 'nan') { %>
+                  <td id="link-<%= i %>">Không có đường link tham khảo</td>
+                <% } else { %>
+                  <td id="link-<%= i %>"><a href="<%= userMaterial.link %>">Click vào đây</a></td>
+                <% } %>
+                
+                <td id="courseTitle-<%= i %>"><%= userMaterial.courseTitle %></td>
+                <td id="author-<%= i %>"><%= userMaterial.author %></td>
+                <td id="publisher-<%= i %>"><%= userMaterial.publisher %></td>
+                <td id="publishYear-<%= i %>"><%= userMaterial.publishYear %></td>
+              </tr>
+            <% }
+            } 
+            %>
           </tbody>
         </table>
       </div>
@@ -64,6 +92,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="/main.js"></script>
+    <script src="/script/userPages/material.js"></script>
   </body>
 </html>

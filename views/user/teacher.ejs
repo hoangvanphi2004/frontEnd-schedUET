@@ -1,0 +1,58 @@
+<%- include('../general/headerUser') %>;
+    <!-- header end!! -->
+
+    <!-- Calendarsection start -->
+
+    <!-- Calendarsection end ! -->
+
+    <!-- Registrationsection start -->
+    <!-- Registrationsection start -->
+    <section class="teacher" id="teacher">
+      <div class="user_teacher">
+        <h1>Teacher User</h1>
+      </div>
+      <div class="search_teacher">
+        <div class="search_teacher-selection">
+          <div class="icon_search_teacher-selection">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <input
+          type="text"
+          id="myInput_teacher"
+          onkeyup="myFunctionTeacher('<%= JSON.stringify(userTeachers.data) %>', this)"
+          placeholder="Search teacher...."
+        />
+      </div>
+      <div class="teacher_table_data">
+        <table id="teacher_table">
+          <thead>
+            <tr class="header">
+              <th>TeacherId</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Facucity</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (const [i, teacher] of Object.entries(userTeachers.data)) { %>
+              <tr>
+                <td id="teacherID-<%= i %>"><%= teacher.teacherID %></td>
+                <td id="name-<%= i %>"><%= teacher.name %></td>
+                <td id="email-<%= i %>"><%= teacher.email %></td>
+                <td id="faculty-<%= i %>"><%= teacher.faculty %></td>
+                <td id="role-<%= i %>"><%= teacher.role %></td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Teachersection end ! -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/script/userPages/teacher.js"></script>
+  </body>
+</html>

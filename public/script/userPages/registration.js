@@ -105,18 +105,11 @@ async function sendToTakes(){
         e.message = "There are some conflict between subject";
         throw e;
       }else{
-        await fetch(`${BASE_URL}/registrations/${userID}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
+        userTakes.data.push(subject);
+        await axios.post(`${BASE_URL}/registrations/${userID}`, data);
       }
     }catch(e){
-      alert(`Môn ${subject.title} đã bị trùng thời gian với môn học khác`);
-      location.reload();
-      process.exit(0);
+      alert(`Class ${subject.title} ${subject.start}-${subject.end} ${DAY[subject.day]} have been overlapped with other class you have registered`);
     }
   }
   location.reload();
@@ -124,12 +117,6 @@ async function sendToTakes(){
 
 async function deleteSubjectFromTakes(index){
   const data = {"courseID": userTakes.data[index].courseID, "sectionID": userTakes.data[index].sectionID};
-  await fetch(`${BASE_URL}/registrations/${userID}`, {
-      method: "DELETE",
-      headers: {
-          "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-  });
+  await axios.delete(`${BASE_URL}/registrations/${userID}`, {data});
   location.reload();
 }

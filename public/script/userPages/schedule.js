@@ -86,13 +86,7 @@ async function addSchedule(courseID, sectionID, section){
     if(isConflict(section)){
         alert("Môn học đã bị trùng với 1 môn khác");
     }else{
-        await fetch(`${BASE_URL}/schedules/${userID}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
+        await axios.post(`${BASE_URL}/schedules/${userID}`, data)
         location.reload();
     }
 }
@@ -100,36 +94,18 @@ async function addSchedule(courseID, sectionID, section){
 async function deleteSchedue(index){
     let userSchedule = userSchedules.data[index];
     const data = {"courseID": userSchedule.courseID, "sectionID": userSchedule.sectionID};
-    await fetch(`${BASE_URL}/schedules/${userID}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    }) 
+    await axios.delete(`${BASE_URL}/schedules/${userID}`, {data}) 
     location.reload();
 }
 
 async function switchToTakes(){
     for(userSchedule of userSchedules.data){
         const data = {"courseID": userSchedule.courseID, "sectionID": userSchedule.sectionID};
-        await fetch(`${BASE_URL}/schedules/${userID}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })    
+        await axios.delete(`${BASE_URL}/schedules/${userID}`, {data});
     }
     for(subject of userTakes.data){
         const data = {"courseID": subject.courseID, "sectionID": subject.sectionID};
-        await fetch(`${BASE_URL}/schedules/${userID}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
+        await axios.post(`${BASE_URL}/schedules/${userID}`, data);
     }
     location.reload();
 }
