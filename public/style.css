@@ -328,8 +328,7 @@ header .icons i:hover {
     text-align: center;
     width: 10px;
 }
-
-#icon_delete_result{
+#icon_delete_result, #icon_delete{
     cursor: pointer;
 }
 

@@ -28,8 +28,17 @@ const getSchedules = wrapper(async (req, res, next) => {
 });
 
 const getMaterials = wrapper(async (req, res, next) => {
-  //const materials = await axios.get()
-  res.render("user/material");
+  const userMaterials = (await axios.get(`${process.env.BASE_URL}/materials/search?q=&mode=0`)).data;
+  res.render("user/material", {
+    "userMaterials": userMaterials
+  });
+});
+
+const getTeachers = wrapper(async (req, res, next) => {
+  const userTeachers = (await axios.get(`${process.env.BASE_URL}/teachers`)).data;
+  res.render("user/teacher", {
+    "userTeachers": userTeachers
+  });
 });
 
 const getRegistrations = wrapper(async (req, res, next) => {
@@ -44,4 +53,4 @@ const getRegistrations = wrapper(async (req, res, next) => {
   });
 });
 
-export { getMaterials, getRegistrations, getSchedules };
+export { getMaterials, getRegistrations, getSchedules, getTeachers };

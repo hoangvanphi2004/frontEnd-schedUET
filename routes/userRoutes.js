@@ -13,4 +13,6 @@ router.route("/schedules").get(userController.getSchedules);
 
 router.route("/materials").get(userController.getMaterials);
 
+router.route("/teachers").get(userController.getTeachers);
+
 export default router;
