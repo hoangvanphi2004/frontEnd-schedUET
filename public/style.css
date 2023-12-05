@@ -277,7 +277,7 @@ header .icons i:hover {
 }
 
 .main_search_and_result_table {
-    width: 20%;
+    width: 200px;
     height: 100%;
 }
 
@@ -295,9 +295,9 @@ header .icons i:hover {
     margin-right: 1rem;
     display: block;
     overflow: auto;
-    width: 140%;
+    width: 150%;
     height: 520px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     border: 1px solid black;
     border-radius: 2px;
 }
@@ -307,6 +307,7 @@ header .icons i:hover {
     border-collapse: collapse;
     /* Full-width */
     margin: auto;
+    width: 90%;
     height: 100%;
     /* Add a grey border */
     font-size: 18px;
@@ -326,7 +327,8 @@ header .icons i:hover {
     font-family: 'Roboto', sans-serif;
     padding: 10px;
     text-align: center;
-    width: 10px;
+    max-width: 200px;
+    word-wrap: break-word;
 }
 #icon_delete_result, #icon_delete{
     cursor: pointer;
@@ -765,7 +767,7 @@ header .icons i:hover {
     overflow: auto;
     width: 100%;
     height: 600px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     border: 1px solid black;
     margin-top: 2rem;
 }
@@ -796,7 +798,8 @@ header .icons i:hover {
     font-family: 'Roboto', sans-serif;
     padding: 10px;
     text-align: center;
-    width: 300px;
+    width: 100px;
+    word-wrap: break-word;;
 
 }
 

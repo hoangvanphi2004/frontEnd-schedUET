@@ -747,7 +747,7 @@ header .icons i:hover {
     overflow: auto;
     width: 100%;
     height: 600px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     border: 1px solid black;
     margin-top: 2rem;
 }
@@ -779,7 +779,7 @@ header .icons i:hover {
     padding: 10px;
     text-align: center;
     width: 300px;
-
+    word-wrap: break-word;
 }
 
 
