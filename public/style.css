@@ -103,7 +103,10 @@ header .icons i:hover {
     transform: rotate(360deg);
 }
 
-
+a:is(:link, :active, :visited).active {
+    color: #fff;
+    background-color: lightskyblue;
+}
 
 #search-form {
     position: fixed;
