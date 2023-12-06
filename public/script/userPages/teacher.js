@@ -1,5 +1,13 @@
 let shortList = [];
 
+const pagePath = window.location.pathname;
+document.querySelectorAll("nav a").forEach((element) => {
+  const tempHref = element.href;
+  if (tempHref.includes(`${pagePath}`)) {
+    element.classList.add("active");
+  }
+});
+
 function myFunctionTeacher(userTeachers, input){
     userTeachers = JSON.parse(userTeachers);
     shortList = userTeachers.filter((data) => 

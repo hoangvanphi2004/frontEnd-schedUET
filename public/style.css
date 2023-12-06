@@ -1035,7 +1035,7 @@ a:is(:link, :active, :visited).active {
     overflow: auto;
     width: 100%;
     height: 600px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     border: 1px solid black;
     margin-top: 2rem;
 }
@@ -1067,7 +1067,7 @@ a:is(:link, :active, :visited).active {
     padding: 10px;
     text-align: center;
     width: 300px;
-
+    word-wrap: break-word;
 }
 
 

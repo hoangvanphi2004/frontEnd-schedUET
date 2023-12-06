@@ -1,5 +1,13 @@
 const BASE_URL = "http://localhost:8000"
 
+const pagePath = window.location.pathname;
+document.querySelectorAll("nav a").forEach((element) => {
+  const tempHref = element.href;
+  if (tempHref.includes(`${pagePath}`)) {
+    element.classList.add("active");
+  }
+});
+
 let userSchedules, userSections, userTakes, userID, DAY;
 
 function getData(userSchedulesFromEJS, userSectionsFromEJS, userTakesFromEJS, userIDFromEJS, DAYFromEJS){
