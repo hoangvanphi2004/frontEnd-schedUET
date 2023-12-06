@@ -1,3 +1,11 @@
+const pagePath = window.location.pathname;
+document.querySelectorAll("nav a").forEach((element) => {
+  const tempHref = element.href;
+  if (tempHref.includes(`${pagePath}`)) {
+    element.classList.add("active");
+  }
+});
+
 document.querySelector("#addtable_material_admin").onclick = () => {
   document.querySelector("#modal_material").classList.toggle("active");
 };
@@ -165,7 +173,7 @@ async function search_Material() {
   let query = `?q=${searchInput}&mode=`;
   let queryOldLength = query.length;
 
-  let firstModeAdded = false
+  let firstModeAdded = false;
   for (let i = 0; i < checkBoxResult.length; i++) {
     if (checkBoxResult[i].checked) {
       if (!firstModeAdded) {
@@ -215,7 +223,10 @@ async function search_Material() {
 
           const linktd = document.createElement("td");
           linktd.id = `link-${i}`;
-          linktd.textContent = receivedData[i].link;
+          const linka = document.createElement("a");
+          linka.href = receivedData[i].link;
+          linka.textContent = "link";
+          linktd.appendChild(linka);
           temptr.appendChild(linktd);
 
           const courseTitletd = document.createElement("td");
@@ -244,22 +255,22 @@ async function search_Material() {
           editi.className = "icon_add_material fa-regular fa-pen-to-square";
           edittd.appendChild(editi);
           temptr.appendChild(edittd);
-          
+
           const deletetd = document.createElement("td");
           const deletei = document.createElement("i");
           deletei.id = `icon_delete_material_${i}`;
           deletei.className = "icon_delete_material fa-solid fa-trash";
           deletetd.appendChild(deletei);
           temptr.appendChild(deletetd);
-          
+
           parent.appendChild(temptr);
 
           editi.onclick = function () {
             openEditTab(editi);
-          } 
+          };
           deletei.onclick = function () {
             deleteData_Material(deletei);
-          } 
+          };
         }
       } else {
         res.send(`result.status: ${result.data}`);

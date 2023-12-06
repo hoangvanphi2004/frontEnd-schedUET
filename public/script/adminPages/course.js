@@ -1,3 +1,10 @@
+const pagePath = window.location.pathname;
+document.querySelectorAll("nav a").forEach((element) => {
+  const tempHref = element.href;
+  if (tempHref.includes(`${pagePath}`)) {
+    element.classList.add("active");
+  }
+});
 
 document.querySelector("#addtable_course_admin").onclick = () => {
   document.querySelector("#modal_course").classList.toggle("active");
