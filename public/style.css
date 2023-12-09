@@ -529,7 +529,7 @@ a:is(:link, :active, :visited).active {
     border-radius: 5px;
     box-shadow: 0 9px #999;
     margin-bottom: 3rem;
-    margin-top: 2rem
+    margin-top: 2rem;
 }
 
 .button:hover {
