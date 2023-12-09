@@ -104,7 +104,7 @@ input {
 }
 
 .button__login {
-    margin-left: 2rem;
+    /* margin-left: rem; */
     display: inline-block;
     padding: 5px 10px;
     font-size: 15px;
@@ -121,7 +121,7 @@ input {
     margin-top:1rem
   }
   
-  .button__login:hover {background-color: black}
+  .button__login:hover {background-color: lightgray;}
   
   .button__login:active {
     background-color: lightskyblue;
