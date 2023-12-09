@@ -174,8 +174,6 @@
               <thead>
                 <tr>
                   <td>Course</td>
-                  <td>Building</td>
-                  <td>Day</td>
                   <td>Delete</td>
                 </tr>
               </thead>
@@ -185,14 +183,11 @@
                 for(subject of userSchedules.data){ 
                 %>
                   <tr>
-                    <td width="50px">
-                      <%= subject.title %>
-                    </td>
-                    <td>
-                      <%= subject.location %>
-                    </td>
-                    <td>
-                      <%= DAY[subject.day] %>
+                    <td width="200px">
+                      <div>Subject: <%= subject.title %></div>
+                      <div>Location: <%= subject.location %></div>
+                      <div>Time: <%= DAY[subject.day] %></div>
+                      <div>------------------------------</div>
                     </td>
                     <td>
                       <i
