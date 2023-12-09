@@ -418,6 +418,9 @@ a:is(:link, :active, :visited).active {
     color: green;
 }
 
+.registration {
+    margin-bottom: 7rem;
+}
 .search_registration {
     flex: 0.5px;
     height: 30px;
@@ -630,6 +633,7 @@ a:is(:link, :active, :visited).active {
     position: flex;
     text-align: center;
     margin-top: 5rem;
+    margin-bottom: 8rem;
 }
 
 .study_material h1 {
@@ -952,6 +956,7 @@ a:is(:link, :active, :visited).active {
     position: flex;
     text-align: center;
     margin-top: 5rem;
+    margin-bottom: 7rem;
 }
 
 .teacher h1 {
