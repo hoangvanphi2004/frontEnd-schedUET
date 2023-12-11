@@ -249,7 +249,7 @@ a:is(:link, :active, :visited).active {
     display: block;
     overflow: auto;
     width: 150%;
-    height: 520px;
+    height: 630px;
     /* white-space: nowrap; */
     border: 1px solid black;
     border-radius: 2px;
@@ -280,7 +280,7 @@ a:is(:link, :active, :visited).active {
     font-family: 'Roboto', sans-serif;
     padding: 10px;
     text-align: center;
-    max-width: 200px;
+    max-width: 300px;
     word-wrap: break-word;
 }
 #icon_delete_result, #icon_delete{

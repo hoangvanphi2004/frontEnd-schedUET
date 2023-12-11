@@ -143,7 +143,7 @@
               <input
                 type="text"
                 class="main_search-input"
-                placeholder="Find..."
+                placeholder="Find sections..."
                 onkeyup="sectionSearch()"
               />
               
@@ -172,10 +172,7 @@
           <div class="table_result_calendar">
             <table id="result_course_table">
               <thead>
-                <tr>
-                  <td>Course</td>
-                  <td>Delete</td>
-                </tr>
+                
               </thead>
               <tbody>
                 <%
@@ -183,11 +180,11 @@
                 for(subject of userSchedules.data){ 
                 %>
                   <tr>
-                    <td width="200px">
+                    <td width="300px">
                       <div>Subject: <%= subject.title %></div>
                       <div>Location: <%= subject.location %></div>
                       <div>Time: <%= DAY[subject.day] %></div>
-                      <div>------------------------------</div>
+                      <div>---------------------------------------------------</div>
                     </td>
                     <td>
                       <i
@@ -206,7 +203,7 @@
         </div>
       </div>
       <div class="container">
-        <button class="button" onclick="switchToTakes()">Courses from regristration</button>
+        <button class="button" onclick="switchToTakes()">Add sections from registration</button>
       </div>
     </section>
     <!-- Calendarsection end ! -->

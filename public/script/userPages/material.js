@@ -142,7 +142,10 @@ async function search_Material() {
 
           const linktd = document.createElement("td");
           linktd.id = `link-${i}`;
-          linktd.textContent = receivedData[i].link;
+          const linka = document.createElement("a");
+          linka.href = receivedData[i].link;
+          linka.textContent = "link";
+          linktd.appendChild(linka);
           temptr.appendChild(linktd);
 
           const courseTitletd = document.createElement("td");
