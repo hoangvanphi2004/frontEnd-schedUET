@@ -1,6 +1,6 @@
-const BASE_URL = "http://localhost:8000";
-let menu = document.querySelector("#menu-bars");
-let navbar = document.querySelector(".navbar");
+const BASE_URL = "http://localhost:8000"
+let menu = document.querySelector('#menu-bars');
+let navbar = document.querySelector('.navbar');
 
 const pagePath = window.location.pathname;
 document.querySelectorAll("nav a").forEach((element) => {
@@ -11,17 +11,15 @@ document.querySelectorAll("nav a").forEach((element) => {
 });
 
 menu.onclick = () => {
-  menu.classList.toggle("fa-times");
-  navbar.classList.toggle("active");
-};
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+}
 
-document.querySelector("#search-icon").onclick = () => {
-  document.querySelector("#search-form").classList.toggle("active");
-};
 
-document.querySelector("#close").onclick = () => {
-  document.querySelector("#search-form").classList.remove("active");
-};
+document.querySelector('#close').onclick = () => {
+  document.querySelector('#search-form').classList.remove('active');
+}
+
 
 function myFunction() {
   // Declare variables
@@ -38,6 +36,7 @@ function myFunction() {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
+
       } else {
         tr[i].style.display = "none";
       }
@@ -60,6 +59,7 @@ function myFunctionMaterial() {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
+
       } else {
         tr[i].style.display = "none";
       }
@@ -69,86 +69,59 @@ function myFunctionMaterial() {
 
 let userSections, userTakes, userID, DAY;
 
-function getData(
-  userSectionsFromEJS,
-  userTakesFromEJS,
-  userIDFromEJS,
-  DAYFromEJS
-) {
+function getData(userSectionsFromEJS, userTakesFromEJS, userIDFromEJS, DAYFromEJS){
   const parser = new DOMParser();
-  userSections = JSON.parse(
-    parser.parseFromString(userSectionsFromEJS, "text/html").body.innerHTML
-  );
-  userTakes = JSON.parse(
-    parser.parseFromString(userTakesFromEJS, "text/html").body.innerHTML
-  );
+  userSections = JSON.parse(parser.parseFromString(userSectionsFromEJS, 'text/html').body.innerHTML);
+  userTakes = JSON.parse(parser.parseFromString(userTakesFromEJS, 'text/html').body.innerHTML);
   userID = userIDFromEJS;
-  DAY = JSON.parse(
-    parser.parseFromString(DAYFromEJS, "text/html").body.innerHTML
-  );
+  DAY = JSON.parse(parser.parseFromString(DAYFromEJS, 'text/html').body.innerHTML);
 }
 
-function isIntersect(x1, y1, x2, y2) {
-  return !(parseInt(y1) < parseInt(x2) || parseInt(y2) < parseInt(x1));
+function isIntersect(x1, y1, x2, y2){
+  return !((parseInt(y1) < parseInt(x2)) || (parseInt(y2) < parseInt(x1)));
 }
 
-function isConflict(section) {
-  for (userTake of userTakes.data) {
-    if (
-      section.day == userTake.day &&
-      isIntersect(section.start, section.end, userTake.start, userTake.end)
-    ) {
-      return true;
-    }
+function isConflict(section){
+  for(userTake of userTakes.data){
+      if(section.day == userTake.day && isIntersect(section.start, section.end, userTake.start, userTake.end)){
+          return true;
+      }
   }
   return false;
 }
 
 let prepareList = [];
 
-function addToPrepareList(index, thisBox) {
-  if (thisBox.checked) {
+function addToPrepareList(index, thisBox){
+  if(thisBox.checked){
     prepareList.push(userSections.data[index]);
-  } else {
+  }else{
     prepareList = prepareList.filter((x) => x != userSections.data[index]);
   }
   console.log(prepareList);
 }
 
-async function sendToTakes() {
-  for (subject of prepareList) {
-    const data = { courseID: subject.courseID, sectionID: subject.sectionID };
-    try {
-      if (isConflict(subject)) {
+async function sendToTakes(){
+  for(subject of prepareList){
+    const data = {"courseID": subject.courseID, "sectionID": subject.sectionID};
+    try{
+      if(isConflict(subject)){
         let e = new Error();
         e.message = "There are some conflict between subject";
         throw e;
-      } else {
+      }else{
         userTakes.data.push(subject);
-        await axios
-          .post(`${BASE_URL}/registrations/${userID}`, data)
-          .catch((err) => {
-            console.log("this is the error:");
-            console.log(err.response.data.err);
-            alert("You haven't register the prerequisite courses");
-          });
+        await axios.post(`${BASE_URL}/registrations/${userID}`, data);
       }
-    } catch (e) {
-      alert(
-        `Class ${subject.title} ${subject.start}-${subject.end} ${
-          DAY[subject.day]
-        } have been overlapped with other class you have registered`
-      );
+    }catch(e){
+      alert(`Class ${subject.title} ${subject.start}-${subject.end} ${DAY[subject.day]} have been overlapped with other class you have registered`);
     }
   }
   location.reload();
 }
 
-async function deleteSubjectFromTakes(index) {
-  const data = {
-    courseID: userTakes.data[index].courseID,
-    sectionID: userTakes.data[index].sectionID,
-  };
-  await axios.delete(`${BASE_URL}/registrations/${userID}`, { data });
+async function deleteSubjectFromTakes(index){
+  const data = {"courseID": userTakes.data[index].courseID, "sectionID": userTakes.data[index].sectionID};
+  await axios.delete(`${BASE_URL}/registrations/${userID}`, {data});
   location.reload();
 }

@@ -96,7 +96,7 @@ async function editData_Account() {
     .catch((err) => {
       console.log("this is the error:");
       console.log(err.response.data);
-      alert("Can't delete this account");
+      alert("Can't edit this account");
     });
 }
 
@@ -117,7 +117,7 @@ async function addData_Account() {
     .catch((err) => {
       console.log("this is the error:");
       console.log(err.response.data);
-      alert("Can't delete this account");
+      alert("Can't add this account");
     });
 }
 
